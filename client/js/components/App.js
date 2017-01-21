@@ -5,7 +5,7 @@ var connect = require('react-redux').connect;
 var actions = require('../actions/index');
 var TitleList = require('./list');
 var Hero = require('./hero');
-var Logo = require('./Logo');
+//var Logo = require('./Logo');
 
 
 var App = React.createClass({
@@ -42,6 +42,18 @@ var App = React.createClass({
     );
   }
 
+});
+
+
+
+var Logo = React.createClass({
+  render: function() {
+    return (
+      <div id="logo" className="Logo">
+        Trailer Engine
+      </div>
+    );
+  }
 });
 
 
