@@ -2,11 +2,18 @@ var React = require('react');
 var connect = require('react-redux').connect;
 var actions = require('../actions/index');
 // var Item = require('./item');
-
+// todo add folder called components/utils  index.js store fetch functions in it
+// require fetch items function from utils
+// store state only for search results 
 var TitleList = React.createClass({
+  componentDidMount: function(){
+    this.props.dispatch(actions.fetchResults(this.props.term))  },
+
   render: function() {   
-    // console.log(this.state.data);
-    console.log(this.props.items);
+  
+   //this.props.dispatch(actions.fetchResults('harry potter'))
+
+   //console.log(this.props.items);
     var imgs = this.props.items.map(function(item, i) {
         if(i<5) {
           var backDrop = item.snippet.thumbnails.high.url;

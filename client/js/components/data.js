@@ -1,20 +1,21 @@
-import 'babel-polyfill';
-import express from 'express';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-
-import routers from './routers';
+server/index.js
+const babel = require('babel-polyfill');
+//const express = require('express');
+const app = require('./routers');
+const morgan = require('morgan');
 
 const HOST = process.env.HOST;
 const PORT = process.env.PORT || 8080;
 
 console.log(`Server running in ${process.env.NODE_ENV} mode`);
 
-const app = express();
+//const app = express();
+app.use(morgan('common'));
 
-app.use(express.static(process.env.CLIENT_PATH));
-app.use(bodyParser.json());
-app.use('/', routers);
+//app.use(express.static(process.env.CLIENT_PATH));
+
+//require('./routers.js')(app); 
+
 
 function runServer() {
     return new Promise((resolve, reject) => {
