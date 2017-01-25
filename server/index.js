@@ -1,9 +1,13 @@
-import 'babel-polyfill';
-import express from 'express';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-
-import routers from './routers';
+// import 'babel-polyfill';
+const babelPolyfill = require('babel-polyfill')
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
+// import express from 'express';
+// import mongoose from 'mongoose';
+// import bodyParser from 'body-parser';
+const routers = require('./routers');
+// import routers from './routers';
 
 const HOST = process.env.HOST;
 const PORT = process.env.PORT || 8080;

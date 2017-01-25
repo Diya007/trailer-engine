@@ -1,12 +1,7 @@
 express = require('express'); 
-
-// import express from 'express';
 var profileRouter = express.Router(); 
-//const bodyParser = require('body-parser');
-//import mongoose from 'mongoose';
-//const {User} = require('./models');	
+	
 var  User = require('./models.js');
-//const app = express();
 
 	profileRouter.post('/register', function(req, res){
 		//console.log('hello')
@@ -21,9 +16,6 @@ var  User = require('./models.js');
 
 	});
 
-	// app.get('/', function(req, res) {
-	// 	console.log('hello get works')
-	// })
 
 
 
