@@ -3,11 +3,8 @@ const babelPolyfill = require('babel-polyfill')
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
-// import express from 'express';
-// import mongoose from 'mongoose';
-// import bodyParser from 'body-parser';
+
 const routers = require('./routers');
-// import routers from './routers';
 
 const HOST = process.env.HOST;
 const PORT = process.env.PORT || 8080;
@@ -17,7 +14,9 @@ console.log(`Server running in ${process.env.NODE_ENV} mode`);
 const app = express();
 
 app.use(express.static(process.env.CLIENT_PATH));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
 app.use('/', routers);
 
 function runServer() {

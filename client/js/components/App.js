@@ -9,15 +9,15 @@ var Hero = require('./hero');
 var App = React.createClass({
   fetchTerm: function(){
     var requestTerm = this.refs.requestTerm.value;
-    console.log(requestTerm)
-    return requestTerm;
-    // if(requestTerm!=="") {
-    //   this.props.dispatch(actions.fetchResults(requestTerm));
-    // }
-    // else if(requestTerm ==""){
-    //   alert('Please type in a movie name');
-    //    //this.fetchAlert();
-    // }
+    
+    //return requestTerm;
+    if(requestTerm!=="") {
+      this.props.dispatch(actions.fetchResults(requestTerm));
+    }
+    else if(requestTerm ==""){
+      alert('Please type in a movie name');
+       //this.fetchAlert();
+    }
     this.refs.requestTerm.value = "";
   },
   render: function() {
@@ -34,8 +34,8 @@ var App = React.createClass({
           </div>
         </header>
         <Hero />
-        <TitleList  title="Search Results" term ={this.requestTerm}/> 
-        <TitleList  title="Comedy"  term ={'harry potter'}/> 
+        <TitleList  show={false} title="Search Results"/> 
+        
       </div>
     );
   }
