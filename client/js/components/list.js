@@ -19,8 +19,7 @@ var TitleList = React.createClass({
     return(
       <div ref="titlecategory" className="TitleList" >
         <div className="Title">
-          <h2>{this.props.title}</h2>
-         
+          <h2>{this.props.title}</h2>  
           <div className="titles-wrapper">
             {imgs}
           </div>
@@ -32,13 +31,4 @@ var TitleList = React.createClass({
 });
 
 
-
-function mapStateToProps(state) {
-  return {
-    items: state.items,
-  }
-}
-var Container = connect(mapStateToProps)(TitleList);
-
-
-module.exports = Container;
+module.exports = TitleList;

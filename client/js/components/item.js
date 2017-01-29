@@ -15,8 +15,7 @@ var Item = React.createClass({
           <button onClick={this.getMovies} id="getMovies" type="button" >
             Play
           </button>
-          <ListToggle />
-          
+          <ListToggle />   
         </div>
       </div>
     );
@@ -24,20 +23,12 @@ var Item = React.createClass({
 });
 
 var ListToggle = React.createClass({
-	// getInitialState: function() {
- //    return({ toggled: false })
- //  },
- //  handleClick: function() {
- //    if(this.state.toggled === true) {
- //      this.setState({ toggled: false });
- //    } else {
- //      this.setState({ toggled: true }); 
- //    }
-    
- //  },
-  render: function() {
+ render: function() {
     return (
-      <h1>toggle</h1>
+      <button id="toggle" type="button" >
+        Add
+      </button>
+      
     );
   }
 })
