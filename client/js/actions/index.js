@@ -30,7 +30,7 @@ var registerRequest = function(username) {
 		console.log(username)
 		return fetch('/register', {
 			method: 'POST',
-			header: {
+			headers: {
 				'Accept': 'application/json',
   				'Content-Type': 'application/json'
 			},
