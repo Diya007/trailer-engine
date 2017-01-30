@@ -1,7 +1,9 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var actions = require('../actions/index');
+
 var TitleList = require('./list');
+var Login = require('./login')
 var Hero = require('./hero');
 var Logo = require('./logo');
 
@@ -20,7 +22,6 @@ var App = React.createClass({
     }
     this.refs.requestTerm.value = "";
     this.setState({show: true})
-
   },
   render: function() {
     return (
@@ -34,6 +35,7 @@ var App = React.createClass({
           <div id="enter">
             <button id="enter" type ="button" onClick ={this.fetchTerm} > Enter </button>
           </div>
+          <Login />
         </header>
         <Hero />
         {this.state.show ? <TitleList title="Search Results" items={this.props.items} /> : null}    

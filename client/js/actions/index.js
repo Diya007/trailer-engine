@@ -23,6 +23,35 @@ var fetchResults = function(term) {
 			console.log('there has been an error', err);
 		})
 	}
+};
+
+var registerRequest = function(username) {
+	return function(dispatch) {
+		console.log(username)
+		return fetch('/register', {
+			method: 'POST',
+			header: {
+				'Accept': 'application/json',
+  				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				username: username
+			})
+		})
+		.then(function(response) {
+			console.log(response)
+			return response.json();
+		})
+		.then(function(data) {
+			console.log(data)
+			console.log('route works')
+			//dispatch(loginRequest(username))
+		})
+		.catch(function(err) {
+			console.log('there has been an error', err)
+		})
+	}
 }
 
 exports.fetchResults = fetchResults;
+exports.registerRequest = registerRequest;
