@@ -12,10 +12,11 @@ var App = React.createClass({
     return{show: false}
   },
 
-  fetchTerm: function(){
+  fetchTerm: function(){  
     var requestTerm = this.refs.requestTerm.value;
     if(requestTerm!=="") {
       this.props.dispatch(actions.fetchResults(requestTerm));
+      console.log(this.props.items)
     }
     else if(requestTerm ==""){
       alert('Please type in a movie name');

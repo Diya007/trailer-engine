@@ -3,6 +3,8 @@ var React = require('react');
 var Item = React.createClass({
   getMovies: function() {
     window.open(this.props.videoId,"popup","width=700,height=450");
+    var movieTitle = this.props.title;
+    console.log(this.props.title)
   }, 
 
   render: function() {
@@ -12,10 +14,11 @@ var Item = React.createClass({
         <div className="overlay">
           <div className="title">{this.props.title}</div> 
 
-          <button onClick={this.getMovies} id="getMovies" type="button" >
+          <button onClick={this.getMovies}  id="getMovies" type="button" >
             Play
           </button>
-          <ListToggle />   
+
+          <ListToggle movieTitle={this.props.title}/>   
         </div>
       </div>
     );
@@ -23,9 +26,15 @@ var Item = React.createClass({
 });
 
 var ListToggle = React.createClass({
- render: function() {
+  addMovie: function() {
+      //this.props.dispatch(actions.addMovies(movieTitle));
+      var movieTitle = this.props.movieTitle;
+      console.log(this.props.movieTitle)
+  },
+
+  render: function() {
     return (
-      <button id="toggle" type="button" >
+      <button  onClick={this.addMovie}  id="toggle" type="button" >
         Add
       </button>
       
