@@ -128,10 +128,9 @@ var addMovies = function(movieTitle) {
 		//function(dispatch, getState) {
 		// where is currentUser come from?
 		// if current user is null, error message 
-
 		var currentUser = getState().currentUser;
 		console.log(currentUser);
-		return fetch('/users/' + currentUser + '/movies', {
+		return fetch('/movie-list/'+currentUser+'/movies', {
 	    	method: 'POST',
 	    	headers: {
 		        'Content-Type': 'application/json'
@@ -141,6 +140,7 @@ var addMovies = function(movieTitle) {
       		})
 		})
 		.then(function(response) {
+			console.log(response)
 			return response.json()
 		})
 		.then(function(response) {

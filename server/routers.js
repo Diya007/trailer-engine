@@ -68,21 +68,31 @@ var ReactDOMServer = require('react-dom/server');
 
 	})
 
-	profileRouter.post('/users/:username/movies', function(req, res) {
+	profileRouter.post('/movie-list/:username/movies', function(req, res) {
 		var routerUsername = req.params.username;
 		var movieTitle = req.body.movieTitle;
-		var authUsername = req.user.username.toString();
-		var id = req.user._id.toString();
+		
 
-		Movie.creat({title: movieTitle, _user: id}, function(err, movie) {
+		if (routerUsername == null) {
+			return res.status(422).json({
+				"message": "Please Login"
+			});
+		}
+		console.log('this is routername',routerUsername);
+		//console.log(movieTitle);
+		//return res.status(201).json(req)
+		//var authUsername = req.user.username.toString();
+		//var id = req.user._id.toString();
+		// //用 ——user = username 来找到user moduel
+		Movie.creat({title: movieTitle, _user: routerUsername}, function(err, movie) {
 			if(err) {
             	return res.sendStatus(500);
         	}
-        	if(routerUsername !== authUsername) {
-        		return res.status(401).json({message: 'unauthorized'})
-        	}
-
-        	return res.status(201).location('/users/' + authUsername + "/movies/" + movie._id).json({movieId: movie._id})
+        	// if(routerUsername !== authUsername) {
+        	// 	return res.status(401).json({message: 'unauthorized'})
+        	// }
+        	return res.send('router is running')
+        	//return res.status(201).location('/users/' + authUsername + "/movies/" + movie._id).json({movieId: movie._id})
 
 		})
 
