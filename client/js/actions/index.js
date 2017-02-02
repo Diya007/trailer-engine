@@ -110,7 +110,7 @@ var loginSuccessful = function(username) {
 
 // need LOGIN_FAIL CASE 
 // need post request to add movies ???
-
+//点击主页username来fetch movie lists.
 var FETCH_MOVIES = 'FETCH_MOVIES';
 var fetchMovies = function(currentUser) {
 	return function(dispatch) {
@@ -122,29 +122,47 @@ var fetchMovies = function(currentUser) {
 		})
 	}
 }
+
 var addMovies = function(movieTitle) {
 	return function(dispatch, getState) {
-		console.log('addMovies works')
+		//function(dispatch, getState) {
+		// where is currentUser come from?
+		// if current user is null, error message 
+
 		var currentUser = getState().currentUser;
-		return fetch('/users/'+ currentUser + 'movies', {
-			method: 'POST',
-			headers: {
-				'Accept': 'application/json',
-  				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				movieTitle: movieTitle
-			})
+		console.log(currentUser);
+		return fetch('/users/' + currentUser + '/movies', {
+	    	method: 'POST',
+	    	headers: {
+		        'Content-Type': 'application/json'
+	      	},
+		    body: JSON.stringify({
+		    	movieTitle: movieTitle
+      		})
 		})
 		.then(function(response) {
-			console.log(response)
 			return response.json()
+		})
+		.then(function(response) {
+			if(response.ok === false) {
+				return Promise.reject(json);
+			}
 
+		})
+		.then(function(data) {
+			console.log(data)
+		})
+		.catch(function(err) {
+			dispatch(registerError);
+			console.log('there has been an error', err)
+			//add dispatch registerError 
 		})
 	}
 }
 
 
 
+
 exports.fetchResults = fetchResults;
 exports.registerRequest = registerRequest;
+exports.addMovies = addMovies;

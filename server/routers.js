@@ -51,6 +51,7 @@ var ReactDOMServer = require('react-dom/server');
 
 	})
 
+	//why we need usre name and user_id????
 	profileRouter.get('/users/:username', function(req, res) {
 		var routerUsername = req.params.username;
 
@@ -61,6 +62,7 @@ var ReactDOMServer = require('react-dom/server');
 	           });
 	       }
 	       console.log(user)
+	       //console.log(req.user)
 	       res.status(200).json({"._id": user._id, "username": user.username})
 	    });
 
@@ -69,7 +71,20 @@ var ReactDOMServer = require('react-dom/server');
 	profileRouter.post('/users/:username/movies', function(req, res) {
 		var routerUsername = req.params.username;
 		var movieTitle = req.body.movieTitle;
-		//Movie.creat({title: movieTitle}, function())
+		var authUsername = req.user.username.toString();
+		var id = req.user._id.toString();
+
+		Movie.creat({title: movieTitle, _user: id}, function(err, movie) {
+			if(err) {
+            	return res.sendStatus(500);
+        	}
+        	if(routerUsername !== authUsername) {
+        		return res.status(401).json({message: 'unauthorized'})
+        	}
+
+        	return res.status(201).location('/users/' + authUsername + "/movies/" + movie._id).json({movieId: movie._id})
+
+		})
 
 	})
 
