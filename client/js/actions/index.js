@@ -35,7 +35,6 @@ var fetchYoutube = function(items) {
 	
 }
 
-
 var registerRequest = function(username) {
 	return function(dispatch) {
 		console.log('hello')

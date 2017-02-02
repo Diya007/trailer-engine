@@ -9,6 +9,8 @@ const routers = require('./routers');
 const HOST = process.env.HOST;
 const PORT = process.env.PORT || 8080;
 
+mongoose.connect(process.env.DATABASE_URI || global.databaseUri ||'mongodb://diya:123@ds139619.mlab.com:39619/trailer')
+
 console.log(`Server running in ${process.env.NODE_ENV} mode`);
 
 const app = express();

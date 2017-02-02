@@ -14,7 +14,6 @@ var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 
 	profileRouter.post('/register',jsonParser, function(req, res){
-		//console.log(req.body)
 		if(!req.body.username) {
 			return res.status(400).json({
 				message: 'missing username'
