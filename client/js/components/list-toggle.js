@@ -6,15 +6,18 @@ var actions = require('../actions/index');
 var ListToggle = React.createClass({
   addMovie: function() {
       var movieTitle = this.props.movieTitle;
-      //this.props.addMovie(movieTitle); 
+      //this.fetchMovieTitle(movieTitle); 
       this.props.dispatch(actions.addMovies(movieTitle));
-
       if (this.props.loginError !== null) {
         //when I login in the loginError should be set to null again 
+        //add sweet alert for alert
         alert('Please login first')
       }
-  },
+      if(this.props.loginError == null) {
+        alert('add movie to list successfully')
+      }
 
+  },
   render: function() {
     return (
       <button  onClick={this.addMovie}  id="toggle" type="button" >
