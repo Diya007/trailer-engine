@@ -3,8 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Movie = require('./movie');
 
-var UserSchema = new mongoose.Schema({
-        
+var UserSchema = new mongoose.Schema({ 
         username: String,
         movies: [{
         	type: Schema.Types.ObjectId,

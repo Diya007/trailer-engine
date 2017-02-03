@@ -65,6 +65,7 @@ var registerRequest = function(username) {
 				dispatch(loginRequest(username));
 			},
 		)
+		// 改
 		.catch(function(err) {
 			dispatch(registerError);
 			console.log('there has been an error', err)
@@ -96,25 +97,30 @@ var loginRequest = function(username) {
 	}
 }
 
-var LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
+var LOGIN_SUCCESSFUL = 'LOGIN_SUCCESSFUL';
 var loginSuccessful = function(username) {
-	// return function(dispatch) {
-	// 	return fetch('/').then
-	// }
-	return{
+	return {
 		type: LOGIN_SUCCESSFUL,
 		payloadUsername: username
 	}
 	
 }
 
-// need LOGIN_FAIL CASE 
-// need post request to add movies ???
+
+var LOGIN_FAIL = 'LOGIN_FAIL';
+var loginFail = function(error) {
+	return {
+		type: LOGIN_FAIL,
+		payloadError: error
+
+	}
+}
+
 //点击主页username来fetch movie lists.
 var FETCH_MOVIES = 'FETCH_MOVIES';
 var fetchMovies = function(currentUser) {
 	return function(dispatch) {
-		return fetch('/users/'+currentUser+'/movies').then(function(response) {
+		return fetch('/movie-list/' + currentUser + '/movies').then(function(response) {
 			return response.json()
 		})
 		.then(function(data) {
@@ -123,14 +129,12 @@ var fetchMovies = function(currentUser) {
 	}
 }
 
+var ADD_MOVIES = 'ADD_MOVIES';
 var addMovies = function(movieTitle) {
-	return function(dispatch, getState) {
-		//function(dispatch, getState) {
-		// where is currentUser come from?
-		// if current user is null, error message 
+	return function(dispatch, getState) { 
 		var currentUser = getState().currentUser;
 		console.log(currentUser);
-		return fetch('/movie-list/'+currentUser+'/movies', {
+		return fetch('/movie-list/' + currentUser + '/movies', {
 	    	method: 'POST',
 	    	headers: {
 		        'Content-Type': 'application/json'
@@ -140,20 +144,18 @@ var addMovies = function(movieTitle) {
       		})
 		})
 		.then(function(response) {
-			console.log(response)
-			return response.json()
-		})
-		.then(function(response) {
-			if(response.ok === false) {
-				return Promise.reject(json);
+			if(response.status == 401) {
+				console.log(response.statusText)
+				dispatch(loginFail(response.statusText));
 			}
-
+			return response.json()
 		})
 		.then(function(data) {
 			console.log(data)
+			dispatch(fetchMovies(currentUser))
 		})
 		.catch(function(err) {
-			dispatch(registerError);
+			dispatch(addMoviesError(err));
 			console.log('there has been an error', err)
 			//add dispatch registerError 
 		})
@@ -161,8 +163,16 @@ var addMovies = function(movieTitle) {
 }
 
 
+var ADD_MOVIES_ERROR = 'ADD_MOVIES_ERROR';
+var addMoviesError = function(error) {
+		return {
+			type: ADD_MOVIES_ERROR,
+			payload: error
+		}
+}
 
 
+exports.LOGIN_FAIL = LOGIN_FAIL;
 exports.fetchResults = fetchResults;
 exports.registerRequest = registerRequest;
 exports.addMovies = addMovies;

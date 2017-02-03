@@ -26,7 +26,6 @@ var App = React.createClass({
   },
   render: function() {
     return (
-      //console.log(this.state.show)
       <div> 
         <header className="Header">
           <Logo />  
@@ -49,6 +48,7 @@ var App = React.createClass({
 function mapStateToProps(state) {
   return {
     items: state.items,
+    loginError: state.loginError
   }
 }
 

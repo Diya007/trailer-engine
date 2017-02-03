@@ -4,10 +4,10 @@ var actions = require('../actions/index');
 var initialState = {
 	movies:[],
 	currentUser: null,
-	items:[]
+	items:[],
+	loginError: null
 	
 }
-
 
 
 var resultsReducer = function(state, action) {
@@ -18,13 +18,16 @@ var resultsReducer = function(state, action) {
 		// 	return action.items;
 		// default:
 		// 	return state;
-
 			return Object.assign({}, state, {items: action.payloadItems})
 			default:
 				return state;
 
-		case "LOGIN_SUCCESSFUL":
-			return Object.assign({}, state, {currentUser: action.payloadUsername});
+		case 'LOGIN_SUCCESSFUL':
+			return Object.assign({}, state, {currentUser: action.payloadUsername, loginError: null});
+
+		case 'LOGIN_FAIL':
+			return Object.assign({}, state, {loginError: action.payloadError});
+
 		
 	}
 }

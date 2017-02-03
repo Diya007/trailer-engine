@@ -45,13 +45,14 @@ var ReactDOMServer = require('react-dom/server');
                     });
                 }
                 console.log('Username created');
-                return res.status(201).location('/users/' + user._id).json({});
+                return res.status(201).json({});
                 // return res.status(201).location('/users/' + user.username).json({});
             });
 
 	})
 
-	//why we need usre name and user_id????
+	//why we need usre name and user_id???? user is from passport, which i don't use.
+	// for loginRequest  in actions
 	profileRouter.get('/users/:username', function(req, res) {
 		var routerUsername = req.params.username;
 
@@ -71,39 +72,38 @@ var ReactDOMServer = require('react-dom/server');
 	profileRouter.post('/movie-list/:username/movies', function(req, res) {
 		var routerUsername = req.params.username;
 		var movieTitle = req.body.movieTitle;
-		
-
-		if (routerUsername == null) {
-			return res.status(422).json({
-				"message": "Please Login"
-			});
-		}
-		console.log('this is routername',routerUsername);
-		//console.log(movieTitle);
-		//return res.status(201).json(req)
-		//var authUsername = req.user.username.toString();
-		//var id = req.user._id.toString();
-		// //用 ——user = username 来找到user moduel
-		Movie.creat({title: movieTitle, _user: routerUsername}, function(err, movie) {
+	
+		Movie.create({title: movieTitle, _user: routerUsername}, function(err, movie) {
 			if(err) {
             	return res.sendStatus(500);
         	}
-        	// if(routerUsername !== authUsername) {
-        	// 	return res.status(401).json({message: 'unauthorized'})
-        	// }
-        	return res.send('router is running')
-        	//return res.status(201).location('/users/' + authUsername + "/movies/" + movie._id).json({movieId: movie._id})
 
-		})
+        	if (routerUsername.toString() === "null" ) {
+				 return res.status(401).json({message: "Unauthorized"});
+			}
+        	return res.status(201).json({movieId: movie._id})
+        	//return res.status(201).location('/movie-list/' + routerUsername + '/movies/' + movie._id).json({movieId: movie._id})
+		})	
 
 	})
 
+	// fetchMovie action
+	profileRouter.get('/movie-list/:username/movies', function(req, res) {
+		var routerUsername = req.params.username;
+		console.log('routerUsername', routerUsername);
 
-
-
-	profileRouter.get('/users/:username:/movies', function(req, res) {
-		console.log(req.params.username);
-		res.send('hello, the post movies route works')
+		Movie.find({_user: routerUsername}, function(err, movies) {
+			if (err) {
+				return res.status(err);
+			}
+			return res.status(200).json(movies)
+		})
+		// User.find({username:routerUsername}, function(err, user) {
+		// 	if (err) {
+		// 		return res.status(err);
+		// 	}
+		// 	return res.status(200).json(user)
+		// })
 	})
 	
 

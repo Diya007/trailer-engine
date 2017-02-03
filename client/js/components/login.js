@@ -24,13 +24,11 @@ var Login = React.createClass({
  },
  render: function() {
     return (
-         <div className="Login">
-	        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={"hello"} />}
+        <div className="Login">
+	        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} />}
 	        {this.state.show ? <button id="login" onClick={this.fetchUsername}>Login</button> : null}
 	                
-         </div>
-         
-      
+        </div> 
     );
   }
 })
@@ -47,11 +45,12 @@ var Profile = React.createClass({
 	}
 })
 
-// add  a box for tying into email;
-// hide the text box and show the email i typed in; 
-//add case statement into the reducer, need 
+function mapStateToProps(state) {
+	return {
+		currentUser: state.currentUser
+	}
+}
 
-//fetch("/login", { method: "POST", body: form });
-var Container = connect()(Login);
+var Container = connect(mapStateToProps)(Login);
 module.exports = Container;
 
