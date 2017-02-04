@@ -17,7 +17,7 @@ var fetchResults = function(term) {
 		})
 		.then(function(data) {
 			var items = data.items;
-			console.log(items)
+			//console.log(items)
 			dispatch(fetchYoutube(items));
 		})
 		.catch(function(err) {
@@ -82,16 +82,19 @@ var registerError = function(error) {
 	};
 }
 
-
 var loginRequest = function(username) {
 	return function(dispatch) {
 		return fetch('/users/'+username).then(function(response) {
-			console.log(response)
+			//console.log(response)
 			return response.json()
 		})
+		// .then(function(data) {
+		// 	dispatch(fetchMovies(data.username));
+		// })
 		.then(function(data) {
 			console.log(data)
-			dispatch(loginSuccessful(data.username))			
+			dispatch(fetchMovies(data.username));
+			dispatch(loginSuccessful(data.username));	
 		})
 
 	}
@@ -105,7 +108,6 @@ var loginSuccessful = function(username) {
 	}
 	
 }
-
 
 var LOGIN_FAIL = 'LOGIN_FAIL';
 var loginFail = function(error) {
@@ -124,9 +126,21 @@ var fetchMovies = function(currentUser) {
 			return response.json()
 		})
 		.then(function(data) {
-			return console.log(data)
+			console.log('movie list:',data)
+			return dispatch(fetchMoviesSuccessfully(data));
+		})
+		.catch(function(err) {
+			console.log('fetch movies failed', err);
 		})
 	}
+}
+
+var FETCH_MOVIES_SUCCESSFULLY = 'FETCH_MOVIES_SUCCESSFULLY';
+var fetchMoviesSuccessfully = function(movieList) {
+	return {
+		type: FETCH_MOVIES_SUCCESSFULLY,
+		payloadMovieList: movieList
+	}	
 }
 
 var ADD_MOVIES = 'ADD_MOVIES';
@@ -162,7 +176,6 @@ var addMovies = function(movieTitle) {
 	}
 }
 
-
 var ADD_MOVIES_ERROR = 'ADD_MOVIES_ERROR';
 var addMoviesError = function(error) {
 		return {
@@ -171,8 +184,10 @@ var addMoviesError = function(error) {
 		}
 }
 
-
+exports.LOGIN_SUCCESSFUL = LOGIN_SUCCESSFUL;
 exports.LOGIN_FAIL = LOGIN_FAIL;
 exports.fetchResults = fetchResults;
+exports.fetchMoviesSuccessfully = fetchMoviesSuccessfully;
 exports.registerRequest = registerRequest;
 exports.addMovies = addMovies;
+exports.FETCH_MOVIES_SUCCESSFULLY = FETCH_MOVIES_SUCCESSFULLY;
