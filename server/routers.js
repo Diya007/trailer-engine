@@ -33,6 +33,10 @@ var ReactDOMServer = require('react-dom/server');
 	        });
     	}	
 
+    	User.findOne ({
+    		username: username
+    	})
+
 		var user = new User (
 		    {username: username}
 			

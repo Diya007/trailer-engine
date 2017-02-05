@@ -4,7 +4,12 @@ var Schema = mongoose.Schema;
 var Movie = require('./movie');
 
 var UserSchema = new mongoose.Schema({ 
-        username: String,
+        username: {
+        	type: String,
+        	unique: true,
+        	required: true
+        },
+        
         movies: [{
         	type: Schema.Types.ObjectId,
         	ref: 'Movie'

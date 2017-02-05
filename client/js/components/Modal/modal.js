@@ -7,6 +7,12 @@ var ReuseModal = React.createClass({
     var movieList = this.props.movieList;
 
     var customStyle={
+    	overlay: {
+    		position  : 'fixed',
+		    backgroundColor : 'rgba(255, 255, 255, 0)',
+		    zIndex :'1000'
+    	},
+    	
 	  	content : {
 		    position : 'absolute',
 		    top : '40px',
@@ -19,7 +25,6 @@ var ReuseModal = React.createClass({
 		    WebkitOverflowScrolling : 'touch',
 		    borderRadius : '4px',
 		    outline : 'none',
-		    padding  : '20px'
 	 	}
 	}
 		return (

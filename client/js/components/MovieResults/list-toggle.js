@@ -5,15 +5,14 @@ var actions = require('../../actions/index');
 var ListToggle = React.createClass({
   addMovie: function() {
       var movieTitle = this.props.movieTitle;
-      //this.fetchMovieTitle(movieTitle); 
-      this.props.dispatch(actions.addMovies(movieTitle));
-      if (this.props.loginError !== null) {
-        //when I login in the loginError should be set to null again 
-        //add sweet alert for alert
+      if ( this.props.currentUser == null) {
         alert('Please login first')
       }
-      if(this.props.loginError == null) {
-        alert('add movie to list successfully')
+      else{
+        this.props.dispatch(actions.addMovies(movieTitle));
+        if(this.props.loginError == null) {
+          alert('add movie to list successfully')
+        }
       }
 
   },
@@ -29,7 +28,8 @@ var ListToggle = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    loginError: state.loginError
+    loginError: state.loginError,
+    currentUser: state.currentUser
   }
 }
 
