@@ -7,6 +7,9 @@ import { Tooltip, OverlayTrigger, ButtonToolbar, DropdownButton, MenuItem} from 
 var MovieList = React.createClass({
 
 	render: function() {
+		if (! this.props.movieList) {
+			alert ('please add some movies first');
+		}
 		var movies = this.props.movieList.map(function(movie, i) {
 			var title = movie.title;
 			console.log(movie.title)

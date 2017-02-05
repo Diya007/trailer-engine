@@ -1,6 +1,6 @@
 var React = require('react');
 var MovieList = require('./movie-list');
-var Modal = require('react-modal');
+
 var ReuseModal = require('./modal')
 
 var Profile = React.createClass({
@@ -21,7 +21,8 @@ var Profile = React.createClass({
 		return (
 			<div className="profile"> 
 				<button type="button" onClick={this._openModal}> {this.props.profileName} </button> 
-				<ReuseModal show={this.state.show} />
+
+				<ReuseModal show={this.state.show}  movieList={movieList} />
 		    </div>
 		)
 	}

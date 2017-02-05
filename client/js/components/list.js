@@ -12,7 +12,7 @@ var TitleList = React.createClass({
           var videoId = 'https://www.youtube.com/watch?v='+item.id.videoId;
           var name = item.snippet.title;
           var overview = item.snippet.description;
-         return   <Item  key = {item.etag}  title={name} overview={overview} backdrop={backDrop} videoId={videoId} />          
+         return   <Item  key={item.etag}  title={name} overview={overview} backdrop={backDrop} videoId={videoId} />          
         };
     })
    
