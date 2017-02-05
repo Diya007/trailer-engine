@@ -1,7 +1,6 @@
 var React = require('react');
-var MovieList = require('./movie-list');
-
-var ReuseModal = require('./modal')
+var MovieList = require('../Modal/movie-list');
+var ReuseModal = require('../Modal/modal')
 
 var Profile = React.createClass({
 	getInitialState: function() {
@@ -16,8 +15,6 @@ var Profile = React.createClass({
 
 		var movieList = this.props.movieList;
 		//{this.state.show ? <MovieList movieList={movieList} /> : null}
-		console.log(this.props.profileName)
-		// console.log(this.props.movieList)
 		return (
 			<div className="profile"> 
 				<button type="button" onClick={this._openModal}> {this.props.profileName} </button> 

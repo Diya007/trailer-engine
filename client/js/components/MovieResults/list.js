@@ -1,6 +1,6 @@
 var React = require('react');
 var connect = require('react-redux').connect;
-var actions = require('../actions/index');
+//var actions = require('../actions/index');
 var Item = require('./item');
 
 var TitleList = React.createClass({

@@ -7,7 +7,7 @@ var ReactDOM = require('react-dom');
 var Provider = require('react-redux').Provider;
 var store = require('./store');
 
-var App = require('./components/App');
+var App = require('./components/Dashboard/App');
 
 document.addEventListener('DOMContentLoaded', function(){
 	ReactDOM.render(

@@ -1,7 +1,6 @@
 var React = require('react');
 var connect = require('react-redux').connect;
-var addMovies = require('../actions/index').addMovies;
-var actions = require('../actions/index');
+var actions = require('../../actions/index');
 
 var ListToggle = React.createClass({
   addMovie: function() {

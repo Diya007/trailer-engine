@@ -1,10 +1,13 @@
 var React = require('react');
 var connect = require('react-redux').connect;
-var actions = require('../actions/index');
+var actions = require('../../actions/index');
 
-var TitleList = require('./list');
-var Login = require('./login')
+var TitleList = require('../MovieResults/list');
+
+var Login = require('../Login/login')
+
 var Hero = require('./hero');
+
 var Logo = require('./logo');
 
 var App = React.createClass({

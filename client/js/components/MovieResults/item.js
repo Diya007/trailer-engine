@@ -1,7 +1,6 @@
 var React = require('react');
 var ListToggle = require('./list-toggle');
 
-
 var Item = React.createClass({
   getMovies: function() {
     window.open(this.props.videoId,"popup","width=700,height=450");

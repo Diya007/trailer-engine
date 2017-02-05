@@ -1,5 +1,5 @@
 var React = require('react');
-var actions = require('../actions/index');
+var actions = require('../../actions/index');
 var connect = require('react-redux').connect;
 var Profile = require('./profile');
 
