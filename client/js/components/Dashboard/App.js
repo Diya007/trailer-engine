@@ -15,7 +15,8 @@ var App = React.createClass({
     return{show: false}
   },
 
-  fetchTerm: function(){  
+  fetchTerm: function(event) { 
+    event.preventDefault(); 
     var requestTerm = this.refs.requestTerm.value;
     if(requestTerm!=="") {
       this.props.dispatch(actions.fetchResults(requestTerm));
@@ -27,17 +28,22 @@ var App = React.createClass({
     this.refs.requestTerm.value = "";
     this.setState({show: true})
   },
+  //search input and enter button in a form;
   render: function() {
     return (
       <div> 
         <header className="Header">
-          <Logo />  
-          <div id="search" className="Search">
-              <input type="text" placeholder="Search for a title..." ref="requestTerm" />
-          </div> 
-          <div id="enter">
-            <button id="enter" type ="button" onClick ={this.fetchTerm} > Enter </button>
-          </div>
+          <Logo /> 
+
+          <form onSubmit={this.fetchTerm}> 
+            <div id="search" className="Search">
+                <input type="text" placeholder="Search for a title..." ref="requestTerm" />
+            </div> 
+            <div id="enter">
+              <button id="enter" type ="submit">Enter </button>
+            </div>
+          </form>
+
           <Login />
         </header>
         <Hero />

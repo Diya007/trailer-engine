@@ -33,25 +33,36 @@ var ReactDOMServer = require('react-dom/server');
 	        });
     	}	
 
-    	User.findOne ({
-    		username: username
-    	})
+    	// User.findOne({
+    	// 	username: username
+    	// })
+    	User.findOne({username: username }, function(err, user) {
+    		if(err) {
+    			console.log(err)
+    			return res.status(500).json({
+    				message:'Internal server error'
+    			})
+    		}	
+    		console.log('this is the user I find', user)
+    		return res.status(201).json({}); 
 
-		var user = new User (
-		    {username: username}
+    		var user = new User (
+		    	{username: username}
 			
-		);
+			);
 		
-		user.save(function(err) {
-                if (err) {
-                    return res.status(500).json({
-                        message: 'Internal server error'
-                    });
-                }
-                console.log('Username created');
-                return res.status(201).json({});
-                // return res.status(201).location('/users/' + user.username).json({});
-            });
+			user.save(function(err) {
+	                if (err) {
+	                    return res.status(500).json({
+	                        message: 'Internal server error'
+	                    });
+	                }
+	                console.log('Username created');
+	                return res.status(201).json({});
+	                // return res.status(201).location('/users/' + user.username).json({});
+	        });
+
+    	});
 
 	})
 

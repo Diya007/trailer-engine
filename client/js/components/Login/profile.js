@@ -12,13 +12,13 @@ var Profile = React.createClass({
 	},
 
 	render: function() {
+		console.log(this.props.profileName)
 
 		var movieList = this.props.movieList;
 		//{this.state.show ? <MovieList movieList={movieList} /> : null}
 		return (
 			<div className="profile"> 
 				<button type="button" onClick={this._openModal}> {this.props.profileName} </button> 
-
 				<ReuseModal show={this.state.show}  movieList={movieList} />
 		    </div>
 		)
