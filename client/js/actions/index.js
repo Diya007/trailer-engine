@@ -37,7 +37,6 @@ var fetchYoutube = function(items) {
 
 var registerRequest = function(username) {
 	return function(dispatch) {
-		console.log('hello')
 		return fetch('/register', {
 			method: 'POST',
 			headers: {
@@ -92,7 +91,7 @@ var loginRequest = function(username) {
 		// 	dispatch(fetchMovies(data.username));
 		// })
 		.then(function(data) {
-			console.log(data)
+			//console.log(data)
 			dispatch(fetchMovies(data.username));
 			dispatch(loginSuccessful(data.username));	
 		})
@@ -126,7 +125,7 @@ var fetchMovies = function(currentUser) {
 			return response.json()
 		})
 		.then(function(data) {
-			console.log('movie list:',data)
+			console.log('movie list array include movieLink and thumbnails:',data)
 			return dispatch(fetchMoviesSuccessfully(data));
 		})
 		.catch(function(err) {
@@ -144,7 +143,7 @@ var fetchMoviesSuccessfully = function(movieList) {
 }
 
 var ADD_MOVIES = 'ADD_MOVIES';
-var addMovies = function(movieTitle) {
+var addMovies = function(movieItem) {
 	return function(dispatch, getState) {
 		var currentUser = getState().currentUser;	
 		return fetch('/movie-list/' + currentUser + '/movies', {
@@ -153,7 +152,9 @@ var addMovies = function(movieTitle) {
 		        'Content-Type': 'application/json'
 	      	},
 		    body: JSON.stringify({
-		    	movieTitle: movieTitle
+		    	movieTitle: movieItem.snippet.title,
+		    	movieId: 'https://www.youtube.com/watch?v='+movieItem.id.videoId,
+		    	movieThumbnail: movieItem.snippet.thumbnails.medium.url
       		})
 		})
 		.then(function(response) {
@@ -164,7 +165,7 @@ var addMovies = function(movieTitle) {
 			return response.json()
 		})
 		.then(function(data) {
-			console.log(data)
+			console.log("this is from addmovie server response", data)
 			dispatch(fetchMovies(currentUser))
 		})
 		.catch(function(err) {

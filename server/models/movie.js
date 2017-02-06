@@ -5,7 +5,8 @@ var User = require('./user');
 
 var MovieSchema = new mongoose.Schema({
         _user: { type: String, ref: 'User'},
-        title: String
+        title: String,
+        movieLink: String
       
 });
 

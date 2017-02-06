@@ -12,7 +12,7 @@ var Login = React.createClass({
  	var username = this.refs.username.value;
  	if(username !== "") {
  		this.props.dispatch(actions.registerRequest(username));
- 		console.log("after dispatch registerRequest",this.props.currentUser)
+ 		//console.log("after dispatch registerRequest",this.props.currentUser)
  		//console.log("after dispatch registerRequest",state)
  		this.setState({show: false})
  	}
@@ -23,6 +23,7 @@ var Login = React.createClass({
 
  },
  render: function() {
+ 	console.log(this.props.payloadMovieList)
  	
     return (
         <div className="Login">

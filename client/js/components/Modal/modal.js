@@ -30,21 +30,16 @@ var ReuseModal = React.createClass({
 			    outline : 'none',
 		 	}
 		}
-
-		var savedMovies = this.props.movieList;
-		for(var i = 0 ; i < savedMovies.length; i++) {
-			console.log(savedMovies[i])
-		}
-		console.log(savedMovies.length)
+		//var savedMovies = this.props.movieList
+		var savedMovies = this.props.movieList.map(function(savedMovie, i) {
+			return <p key={i}><a href={savedMovie.movieLink}> {savedMovie.title} </a></p>
+		})
 
 		return (
-			//onRequestClose={false}
 			<div>
 				<Modal style={customStyle} isOpen={this.props.show}  onRequestClose={this.props._close} contentLabel="Modal">
-							<h1>Modal Content</h1>
-							<p>Etc.</p>
-							<MovieList movieList={this.props.movieList}/>
-						
+							<h1>Favorite List</h1>			
+							{savedMovies}						
 				</Modal>
 			</div>
 		)
