@@ -4,10 +4,9 @@ var ListToggle = require('./list-toggle');
 var Item = React.createClass({
   getMovies: function() {
     window.open(this.props.videoId,"popup","width=700,height=450");
-    var movieTitle = this.props.title;
-    
+    var movieTitle = this.props.title;    
   }, 
-
+// when do I need a server 
   render: function() {
     return (	
       <div className="Item" style={{backgroundImage: 'url(' + this.props.backdrop + ')'}} >
@@ -16,7 +15,7 @@ var Item = React.createClass({
           <button onClick={this.getMovies}  id="getMovies" type="button" >
             Play
           </button>
-          <ListToggle movieTitle={this.props.title}/>   
+          <ListToggle movieTitle={this.props.title} videoId={this.props.videoId} />   
         </div>
       </div>
     );

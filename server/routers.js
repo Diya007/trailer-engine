@@ -33,9 +33,6 @@ var ReactDOMServer = require('react-dom/server');
 	        });
     	}	
 
-    	// User.findOne({
-    	// 	username: username
-    	// })
     	User.findOne({username: username }, function(err, user) {
     		if(err) {
     			console.log(err)
@@ -101,7 +98,6 @@ var ReactDOMServer = require('react-dom/server');
 		})	
 
 	})
-
 	// fetchMovie action
 	profileRouter.get('/movie-list/:username/movies', function(req, res) {
 		var routerUsername = req.params.username;
@@ -121,9 +117,5 @@ var ReactDOMServer = require('react-dom/server');
 		// })
 	})
 	
-
-
-
-
 
 module.exports = profileRouter;

@@ -3,19 +3,21 @@ var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 
 var ListToggle = React.createClass({
+
   addMovie: function() {
       var movieTitle = this.props.movieTitle;
       if ( this.props.currentUser == null) {
         alert('Please login first')
       }
       else{
+        // add videoId to server 
         this.props.dispatch(actions.addMovies(movieTitle));
         if(this.props.loginError == null) {
           alert('add movie to list successfully')
         }
       }
-
   },
+
   render: function() {
     return (
       <button  onClick={this.addMovie}  id="toggle" type="button" >
@@ -24,7 +26,6 @@ var ListToggle = React.createClass({
     );
   }
 })
-
 
 function mapStateToProps(state) {
   return {

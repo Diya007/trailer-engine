@@ -145,9 +145,8 @@ var fetchMoviesSuccessfully = function(movieList) {
 
 var ADD_MOVIES = 'ADD_MOVIES';
 var addMovies = function(movieTitle) {
-	return function(dispatch, getState) { 
-		var currentUser = getState().currentUser;
-		console.log(currentUser);
+	return function(dispatch, getState) {
+		var currentUser = getState().currentUser;	
 		return fetch('/movie-list/' + currentUser + '/movies', {
 	    	method: 'POST',
 	    	headers: {
