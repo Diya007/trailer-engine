@@ -91,6 +91,7 @@
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
     "react-icons": "^2.2.3",
+    "react-iframe": "0.0.4",
     "react-modal": "^1.6.5",
     "react-overlays": "^0.6.10",
     "react-redux": "^5.0.2",

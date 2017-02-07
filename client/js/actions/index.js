@@ -55,7 +55,7 @@ var registerRequest = function(username) {
 			// })
 		})
 		.then(function(data) {
-			console.log("this is what send back from login", data)
+			console.log("this is what send back from login", data.user.username)
 				dispatch(loginRequest(data.user.username));
 			},
 		)
@@ -77,6 +77,7 @@ var registerError = function(error) {
 }
 
 var loginRequest = function(username) {
+	console.log(username)
 	return function(dispatch) {
 		return fetch('/users/'+username).then(function(response) {
 			//console.log(response)
