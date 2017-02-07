@@ -34,16 +34,11 @@ var App = React.createClass({
       <div> 
         <header className="Header">
           <Logo /> 
-
           <form onSubmit={this.fetchTerm}> 
             <div id="search" className="Search">
                 <input type="text" placeholder="Search for a title..." ref="requestTerm" />
             </div> 
-            <div id="enter">
-              <button id="enter" type ="submit">Enter </button>
-            </div>
           </form>
-
           <Login />
         </header>
         <Hero />
@@ -52,7 +47,6 @@ var App = React.createClass({
     );
   }
 });
-
 
 function mapStateToProps(state) {
   return {

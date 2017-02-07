@@ -26,15 +26,20 @@ var Login = React.createClass({
  	console.log(this.props.payloadMovieList)
     return (
         <div className="Login" >
-	        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} movieList={this.props.payloadMovieList} />}
-	        {this.state.show ? <button id="login" onClick={this.fetchUsername}>Login</button> : null}
-	        
-	        <button>Logout</button>  
-	                
+        	<form className="loginForm" onSubmit={this.fetchUsername}>
+		        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} movieList={this.props.payloadMovieList} />}
+		        {this.state.show ? <button id="login" onClick={this.fetchUsername}>Login</button> : null}
+	        </form> 
+
+	        <div>      
+	        {!this.state.show ? <button>Logout</button> : null}
+	        </div>         
         </div> 
     );
   }
 })
+
+ 
 
 
 function mapStateToProps(state) {

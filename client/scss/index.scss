@@ -126,6 +126,10 @@ p {
   margin-left: auto;
   margin-right: 10%;
 }
+.Login {
+  margin-left: auto;
+}
+
 
 button {
   background-color:#bc3315;
@@ -204,7 +208,7 @@ button:active {
    transform: rotate(180deg);
 }
 
-
+/*this is watch trailor now button*/
  .Button {
   background: transparent;
   display: -webkit-box;
@@ -362,19 +366,3 @@ h2 {
   
 }
 
-
-/*body .modal {
-  position: absolute,
-  top: 100px,
-  left: 500px,
-  right: 40px,
-  bottom: 80px,
-  border: 1px solid #ccc,
-  background: red,
-  overflow: auto,
-  WebkitOverflowScrolling: touch,
-  borderRadius: 4px,
-  outline: none,
-  padding: 20px,
-  z-index: 6;
-}*/
