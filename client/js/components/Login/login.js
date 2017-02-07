@@ -29,18 +29,16 @@ var Login = React.createClass({
         	<form className="loginForm" onSubmit={this.fetchUsername}>
 		        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} movieList={this.props.payloadMovieList} />}
 		        {this.state.show ? <button id="login" onClick={this.fetchUsername}>Login</button> : null}
-	        </form> 
-
-	        <div>      
-	        {!this.state.show ? <button>Logout</button> : null}
-	        </div>         
+	        </form> 	                
         </div> 
     );
   }
 })
 
  
-
+     
+//{!this.state.show ? <button>Logout</button> : null}
+ 
 
 function mapStateToProps(state) {
 	console.log('in map state to prop',state)
