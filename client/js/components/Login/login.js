@@ -24,11 +24,17 @@ var Login = React.createClass({
  },
  render: function() {
  	console.log(this.props.payloadMovieList)
+ 	// const loginStyle = {
+ 	// 	marginLeft:'auto'
+ 	// }
  	
     return (
-        <div className="Login">
+        <div className="Login" >
 	        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} movieList={this.props.payloadMovieList} />}
-	        {this.state.show ? <button id="login" onClick={this.fetchUsername}>Login</button> : null}                
+	        {this.state.show ? <button id="login" onClick={this.fetchUsername}>Login</button> : null}
+	        
+	        <button>Logout</button>  
+	                
         </div> 
     );
   }
