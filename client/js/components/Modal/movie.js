@@ -10,9 +10,7 @@ var Movie = React.createClass({
 		window.open(this.props.link,"popup","width=700,height=450");
 	},
 	deleteList: function() {
-		var movieId = this.props.movie._id
-		alert("delet works")
-		console.log(this.props.movie._id)
+		var movieId = this.props.movie._id;
 		this.props.dispatch(actions.deleteMovie(movieId));
 	},
 	render: function() {

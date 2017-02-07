@@ -44,27 +44,14 @@ var ReactDOMServer = require('react-dom/server');
 		    		{username: username}
 				);
 		
-				// user.save(function(err, user) {
-	   //              if (err) {
-	   //                  return res.status(500).json({
-	   //                      message: 'Internal server error'
-	   //                  });
-    //             	}
-	   //              console.log('Username created');
-	   //              return res.status(201).json({user});
-    //             // return res.status(201).location('/users/' + user.username).json({});
-    //     		});
     			User.create(user, function(err, user) {
     				if(err || !sinppet) {
     					console.log(err)
     				}
-    				//console.log(user)
     				return res.status(201).json({user});
     			})
 
     		}
-
-    		console.log('this is the user.movies I find', user)
     		return res.status(201).json({user}); 
     	});
 

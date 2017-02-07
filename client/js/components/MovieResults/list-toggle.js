@@ -2,6 +2,10 @@ var React = require('react');
 var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
 var ListToggle = React.createClass({
   addMovie: function() {
       var movieItem = this.props.movieItem;
@@ -13,19 +17,19 @@ var ListToggle = React.createClass({
         // add videoId to server 
         this.props.dispatch(actions.addMovies(movieItem));
         if(this.props.loginError == null) {
-          alert('add movie to list successfully')
+          this.refs.container.success("The trailer is in your list now!")
         }
       }
   },
-
   render: function() {
-    //this.props 可以平级使用， 从 list->item -> listToggle
-    //var movieItem = this.props.movieItem;
     return (
-      <button  onClick={this.addMovie}  id="toggle" type="button" >
-        Add
-      </button>   
-    );
+      <div>
+        <ToastContainer ref="container" toastMessageFactory={ToastMessageFactory} className="toast-top-right" />
+        <button  onClick={this.addMovie}  id="toggle" type="button" >
+          Add
+        </button>
+      </div>   
+    )
   }
 })
 
