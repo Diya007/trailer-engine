@@ -11,8 +11,7 @@ var ListToggle = React.createClass({
       var movieItem = this.props.movieItem;
       var movieTitle = this.props.movieTitle;
       if ( this.props.currentUser == null) {
-        //alert('Please login first')
-        this.refs.container.warning("Please login first")
+        this.refs.container.warning("Please login first");
       }
       else{
         // add videoId to server 
