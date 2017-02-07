@@ -54,14 +54,9 @@ var registerRequest = function(username) {
 			// 	return {json: json, response: response};
 			// })
 		})
-		.then(function(response) {
-			if(response.ok === false) {
-				return Promise.reject(json);
-			}
-
-		})
 		.then(function(data) {
-				dispatch(loginRequest(username));
+			console.log("this is what send back from login", data)
+				dispatch(loginRequest(data.user.username));
 			},
 		)
 		// 改
@@ -159,13 +154,11 @@ var addMovies = function(movieItem) {
 		})
 		.then(function(response) {
 			if(response.status == 401) {
-				console.log(response.statusText)
 				dispatch(loginFail(response.statusText));
 			}
 			return response.json()
 		})
 		.then(function(data) {
-			console.log("this is from addmovie server response", data)
 			dispatch(fetchMovies(currentUser))
 		})
 		.catch(function(err) {
@@ -184,6 +177,33 @@ var addMoviesError = function(error) {
 		}
 }
 
+//delete movie from list and user database 
+var DELETE_MOVIE = 'DELETE_MOVIE';
+var deleteMovie = function(movieId) {
+	console.log('delete action works')
+	return function(dispatch, getState){
+		var currentUser = getState().currentUser;
+		return fetch('/movie-list/' + currentUser + '/movies/' + movieId, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type' : 'application/json'
+			}
+
+		})
+		.then(function(response) {
+			console.log("this is delete route", response)
+			return response.json()
+		})
+		.then(function(data) {
+			dispatch(fetchMovies(currentUser));
+		})
+	}
+}
+
+
+
+
+exports.deleteMovie = deleteMovie;
 exports.LOGIN_SUCCESSFUL = LOGIN_SUCCESSFUL;
 exports.LOGIN_FAIL = LOGIN_FAIL;
 exports.fetchResults = fetchResults;

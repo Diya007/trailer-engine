@@ -44,20 +44,21 @@ var ReactDOMServer = require('react-dom/server');
 		    		{username: username}
 				);
 		
-				user.save(function(err) {
+				user.save(function(err, user) {
 	                if (err) {
 	                    return res.status(500).json({
 	                        message: 'Internal server error'
 	                    });
                 	}
 	                console.log('Username created');
-	                return res.status(201).json({});
+	                return res.status(201).json({user});
                 // return res.status(201).location('/users/' + user.username).json({});
         		});
+
     		}
 
     		console.log('this is the user.movies I find', user)
-    		return res.status(201).json({}); 
+    		return res.status(201).json({user}); 
     	});
 
 	})
@@ -109,5 +110,17 @@ var ReactDOMServer = require('react-dom/server');
 		})	
 	})
 	
+	profileRouter.delete("/movie-list/:username/movies/:movieId", function(req, res) {
+		var username = req.params.username;
+		var movieId = req.params.movieId;
+
+		Movie.findByIdAndRemove({_id: movieId}, function(err, movie) {
+			if(err) {
+				return res.sendStatus(500);
+			}
+			return res.status(200).json({})
+		})
+
+	})
 
 module.exports = profileRouter;

@@ -1,6 +1,8 @@
 var React = require('react');
 var Modal = require('react-modal');
 var MovieList = require('./movie-list');
+var Movie = require('./movie');
+var FaTrash = require('react-icons/lib/fa/trash');
 
 var ReuseModal = React.createClass({
 
@@ -19,7 +21,7 @@ var ReuseModal = React.createClass({
 		  	content : {
 			    position : 'absolute',
 			    top : '20%',
-			    left : '70%',
+			    left : '60%',
 			    right : '5%',
 			    bottom : '30%',
 			    border : '5px solid #ccc',
@@ -32,14 +34,15 @@ var ReuseModal = React.createClass({
 		}
 		//var savedMovies = this.props.movieList
 		var savedMovies = this.props.movieList.map(function(savedMovie, i) {
-			return <p key={i}><a href={savedMovie.movieLink}> {savedMovie.title} </a></p>
+			return <Movie key={i} link={savedMovie.movieLink} title={savedMovie.title} movie={savedMovie}  />
+			// return <li key={i}><a href={savedMovie.movieLink}> {savedMovie.title} </a> <FaTrash size={22} /></li>
 		})
 
 		return (
 			<div>
 				<Modal style={customStyle} isOpen={this.props.show}  onRequestClose={this.props._close} contentLabel="Modal">
-							<h1>Favorite List</h1>			
-							{savedMovies}						
+					<h2>Favorite List</h2>			
+					{savedMovies}						
 				</Modal>
 			</div>
 		)
