@@ -24,10 +24,6 @@ var Login = React.createClass({
  },
  render: function() {
  	console.log(this.props.payloadMovieList)
- 	// const loginStyle = {
- 	// 	marginLeft:'auto'
- 	// }
- 	
     return (
         <div className="Login" >
 	        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} movieList={this.props.payloadMovieList} />}
