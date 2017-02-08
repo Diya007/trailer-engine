@@ -11,7 +11,6 @@ var Logout = React.createClass({
 	render: function() {
 		return (
 			<div className="Logout"> 
-
 			<button id="logout" onClick={this.fetchUsername}>Logout</button> 
 			</div>
 

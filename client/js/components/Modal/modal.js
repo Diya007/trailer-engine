@@ -15,9 +15,7 @@ var ReuseModal = React.createClass({
 	    		//top: '100px',
 			    backgroundColor : 'rgba(255, 255, 255, 0)',
 			    zIndex :'1000'
-
 	    	},
-
 		  	content : {
 			    position : 'absolute',
 			    top : '20%',

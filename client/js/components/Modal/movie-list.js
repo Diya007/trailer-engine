@@ -20,11 +20,8 @@ var MovieList = React.createClass({
 			<div> 
 				{movies}
 			</div>
-
 		)
-
 	}
-
 })
 
 module.exports = MovieList;
