@@ -28,9 +28,5 @@ var Profile = React.createClass({
 	}
 })
 
-//你要改的是这个ResueModal 的state, 当click close button时， change ReuseModal的state to false
-
-//<Modal id="modal" style={customStyle} isOpen={this.state.show} contentLabel="Modal"></Modal>
-
 
 module.exports = Profile;

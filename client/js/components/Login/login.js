@@ -11,32 +11,29 @@ var Login = React.createClass({
  getInitialState: function() {
  	return {show: true};
  }, 
-
  fetchUsername: function() {
-
  	var username = this.refs.username.value;
-
  	if(username !== "") {
  		this.props.dispatch(actions.registerRequest(username));
  		this.setState({show: false})
  	}
- 	else if(!username) {
- 		
+ 	if(username === "") {		
+ 		console.log('if no username ')
  		this.refs.container.warning("Please type in a username");
- 		// console.log("happens twice")
  	}
- 	this.refs.username.value = "";
 
+ 	this.refs.username.value = "";
  },
  render: function() {
  	console.log(this.props.payloadMovieList)
     return (
         <div className="Login" >
-        	<ToastContainer ref="container" toastMessageFactory={ToastMessageFactory} className="toast-top-right" />
+        	
         	<form className="loginForm" onSubmit={this.fetchUsername}>
 		        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} movieList={this.props.payloadMovieList} />}
-		        {this.state.show ? <button id="login" >Login</button> : null}
-	        </form> 	                
+		        {this.state.show ? <button id="login" onClick={this.fetchUsername} >Login</button> : null}
+	        </form> 
+	        <ToastContainer ref="container" toastMessageFactory={ToastMessageFactory} className="toast-top-right" />	                
         </div> 
     );
   }

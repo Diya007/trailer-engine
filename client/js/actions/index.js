@@ -50,16 +50,12 @@ var registerRequest = function(username) {
 		.then(function(response) {
 			console.log('response',response)
 			return response.json();
-			// return response.json().then(function(json) {
-			// 	return {json: json, response: response};
-			// })
 		})
 		.then(function(data) {
-			console.log("this is what send back from login", data.user.username)
+			console.log("this is what send back from register", data.user.username)
 				dispatch(loginRequest(data.user.username));
 			},
 		)
-		// 改
 		.catch(function(err) {
 			dispatch(registerError);
 			console.log('there has been an error', err)

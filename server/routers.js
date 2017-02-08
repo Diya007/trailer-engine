@@ -43,21 +43,21 @@ var ReactDOMServer = require('react-dom/server');
 				var user = new User (
 		    		{username: username}
 				);
-		
-    			User.create(user, function(err, user) {
-    				if(err || !sinppet) {
-    					console.log(err)
-    				}
-    				return res.status(201).json({user});
-    			})
-
+				user.save (function(err) {
+					if(err) {
+						return res.status(500).json({
+							message: 'Internal Server Error'
+						});
+					}
+					console.log("from post register router",user);
+					return res.status(201).json({user});
+				})
     		}
-    		return res.status(201).json({user}); 
+    	
     	});
 
 	})
-	//why we need usre name and user_id???? user is from passport, which i don't use.
-	// for loginRequest  in actions
+	
 	profileRouter.get('/users/:username', function(req, res) {
 		var routerUsername = req.params.username;
 	    User.findOne({username: routerUsername}, function(err, user){
@@ -67,7 +67,8 @@ var ReactDOMServer = require('react-dom/server');
 	           });
 	       }
 	       console.log(user)
-	       res.status(200).json({"._id": user._id, "username": user.username})
+	       res.status(200).json({username: user.username})
+	       //res.status(200).json({"_id": user._id, "username": user.username})
 	    });
 
 	})
@@ -82,11 +83,9 @@ var ReactDOMServer = require('react-dom/server');
 			if(err) {
             	return res.sendStatus(500);
         	}
-
         	if (routerUsername.toString() === "null" ) {
 				 return res.status(401).json({message: "Unauthorized"});
 			}
-			
         	return res.status(201).json({movieId: movie._id})
         	//return res.status(201).location('/movie-list/' + routerUsername + '/movies/' + movie._id).json({movieId: movie._id})
 		})	
