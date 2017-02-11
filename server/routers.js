@@ -17,6 +17,7 @@ var ReactDOMServer = require('react-dom/server');
 				message: 'missing username'
 			})
 		}
+		console.log(req.body.username)
 		var username = req.body.username;
 		if(typeof username !== 'string') {
 			return res.status(422).json({
@@ -24,21 +25,18 @@ var ReactDOMServer = require('react-dom/server');
         	});
 		}
 		username = username.trim();
-
+		console.log("after trim", username)
 		if (username === '') {
 	        return res.status(422).json({
 	            message: 'Incorrect field length: username'
 	        });
     	}	
-
-    	User.findOne({username: username }, function(err, user) {
+	   	User.findOne({username: username }, function(err, user) {
     		if(err) {
-    			console.log(err)
     			return res.status(500).json({
     				message:'Internal server error'
     			})
     		}	
-
     		if(!user) {
 				var user = new User (
 		    		{username: username}
@@ -49,10 +47,12 @@ var ReactDOMServer = require('react-dom/server');
 							message: 'Internal Server Error'
 						});
 					}
-					console.log("from post register router",user);
 					return res.status(201).json({user});
 				})
     		}
+    		console.log("find", user)
+
+    		return res.status(201).json({user});
     	
     	});
 
@@ -66,7 +66,6 @@ var ReactDOMServer = require('react-dom/server');
 	               message: 'Internal Server Error'
 	           });
 	       }
-	       console.log(user)
 	       res.status(200).json({username: user.username})
 	       //res.status(200).json({"_id": user._id, "username": user.username})
 	    });
@@ -101,8 +100,7 @@ var ReactDOMServer = require('react-dom/server');
 			}
 			return res.status(200).json(movies)
 		})	
-	})
-	
+	})	
 	profileRouter.delete("/movie-list/:username/movies/:movieId", function(req, res) {
 		var username = req.params.username;
 		var movieId = req.params.movieId;

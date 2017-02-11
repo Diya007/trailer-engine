@@ -17,7 +17,6 @@ var fetchResults = function(term) {
 		})
 		.then(function(data) {
 			var items = data.items;
-			//console.log(items)
 			dispatch(fetchYoutube(items));
 		})
 		.catch(function(err) {
@@ -36,6 +35,7 @@ var fetchYoutube = function(items) {
 }
 
 var registerRequest = function(username) {
+
 	return function(dispatch) {
 		return fetch('/register', {
 			method: 'POST',
@@ -48,14 +48,11 @@ var registerRequest = function(username) {
 			})
 		})
 		.then(function(response) {
-			console.log('response',response)
 			return response.json();
 		})
 		.then(function(data) {
-			console.log("this is what send back from register", data.user.username)
-				dispatch(loginRequest(data.user.username));
-			},
-		)
+			dispatch(loginRequest(data.user.username));
+		})
 		.catch(function(err) {
 			dispatch(registerError);
 			console.log('there has been an error', err)
@@ -73,21 +70,14 @@ var registerError = function(error) {
 }
 
 var loginRequest = function(username) {
-	console.log(username)
 	return function(dispatch) {
 		return fetch('/users/'+username).then(function(response) {
-			//console.log(response)
 			return response.json()
 		})
-		// .then(function(data) {
-		// 	dispatch(fetchMovies(data.username));
-		// })
 		.then(function(data) {
-			//console.log(data)
 			dispatch(fetchMovies(data.username));
 			dispatch(loginSuccessful(data.username));	
 		})
-
 	}
 }
 
@@ -105,7 +95,6 @@ var loginFail = function(error) {
 	return {
 		type: LOGIN_FAIL,
 		payloadError: error
-
 	}
 }
 
@@ -117,7 +106,6 @@ var fetchMovies = function(currentUser) {
 			return response.json()
 		})
 		.then(function(data) {
-			console.log('movie list array include movieLink and thumbnails:',data)
 			return dispatch(fetchMoviesSuccessfully(data));
 		})
 		.catch(function(err) {
@@ -173,11 +161,9 @@ var addMoviesError = function(error) {
 			payload: error
 		}
 }
-
 //delete movie from list and user database 
 var DELETE_MOVIE = 'DELETE_MOVIE';
 var deleteMovie = function(movieId) {
-	console.log('delete action works')
 	return function(dispatch, getState){
 		var currentUser = getState().currentUser;
 		return fetch('/movie-list/' + currentUser + '/movies/' + movieId, {
@@ -188,7 +174,6 @@ var deleteMovie = function(movieId) {
 
 		})
 		.then(function(response) {
-			console.log("this is delete route", response)
 			return response.json()
 		})
 		.then(function(data) {
@@ -196,8 +181,6 @@ var deleteMovie = function(movieId) {
 		})
 	}
 }
-
-
 
 
 exports.deleteMovie = deleteMovie;

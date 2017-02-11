@@ -18,17 +18,14 @@ var Login = React.createClass({
  		this.setState({show: false})
  	}
  	if(username === "") {		
- 		console.log('if no username ')
  		this.refs.container.warning("Please type in a username");
  	}
 
  	this.refs.username.value = "";
  },
  render: function() {
- 	console.log(this.props.payloadMovieList)
     return (
-        <div className="Login" >
-        	
+        <div className="Login" >  	
         	<form className="loginForm" onSubmit={this.fetchUsername}>
 		        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} movieList={this.props.payloadMovieList} />}
 		        {this.state.show ? <button id="login" onClick={this.fetchUsername} >Login</button> : null}
@@ -42,7 +39,6 @@ var Login = React.createClass({
 //{!this.state.show ? <button>Logout</button> : null}
  
 function mapStateToProps(state) {
-	console.log('in map state to prop',state)
 	return {
 		currentUser: state.currentUser,
 		payloadMovieList: state.fetchedMovieLists

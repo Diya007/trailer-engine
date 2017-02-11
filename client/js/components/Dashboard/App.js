@@ -2,12 +2,13 @@ var React = require('react');
 var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
 var TitleList = require('../MovieResults/list');
-
 var Login = require('../Login/login')
-
 var Hero = require('./hero');
-
 var Logo = require('./logo');
 
 var App = React.createClass({
@@ -20,7 +21,11 @@ var App = React.createClass({
     var requestTerm = this.refs.requestTerm.value;
     if(requestTerm!=="") {
       this.props.dispatch(actions.fetchResults(requestTerm));
-      console.log(this.props.items)
+      // try pop up warning , if items = nulll
+      if(this.props.items === null) {
+        console.log('works')
+        this.refs.container.warning("Please login first");
+      }
     }
     else if(requestTerm ==""){
       alert('Please type in a movie name');
@@ -32,6 +37,7 @@ var App = React.createClass({
   render: function() {
     return (
       <div> 
+        <ToastContainer ref="container" toastMessageFactory={ToastMessageFactory} className="toast-top-right" />
         <header className="Header">
           <Logo /> 
           <form onSubmit={this.fetchTerm}> 
