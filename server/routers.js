@@ -17,7 +17,6 @@ var ReactDOMServer = require('react-dom/server');
 				message: 'missing username'
 			})
 		}
-		console.log(req.body.username)
 		var username = req.body.username;
 		if(typeof username !== 'string') {
 			return res.status(422).json({
@@ -25,7 +24,6 @@ var ReactDOMServer = require('react-dom/server');
         	});
 		}
 		username = username.trim();
-		console.log("after trim", username)
 		if (username === '') {
 	        return res.status(422).json({
 	            message: 'Incorrect field length: username'
@@ -41,16 +39,17 @@ var ReactDOMServer = require('react-dom/server');
 				var user = new User (
 		    		{username: username}
 				);
-				user.save (function(err) {
+
+				user.save (function(err, user) {
 					if(err) {
 						return res.status(500).json({
 							message: 'Internal Server Error'
 						});
 					}
-					return res.status(201).json({user});
+					console.log('this is new ',user)
+					//return res.status(201).json({user});
 				})
     		}
-    		console.log("find", user)
 
     		return res.status(201).json({user});
     	
