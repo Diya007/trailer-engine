@@ -66,34 +66,16 @@ p {
 .Logo {
   text-shadow: 2px 2px 5px black;
   font-size: 40px;
-  // width: 151px;
-  // height: 41px;
-  // margin-right: 10px;
-  // -webkit-transition: margin .125s ease;
-  // transition: margin .125s ease;
+  
 }
 
 .Search {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   width: 100%;
   position: absolute;
   left:0;
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  pointer-events: none;
 }
 
 .Search input {
@@ -116,11 +98,33 @@ p {
   -webkit-transition: border .25s ease, width .125s ease .125s;
   transition: border .25s ease, width .125s ease .125s;
 }
+
 .Search input:focus {
   border: 2px solid #e50914;
   width: 30%;
 }
 
+.login-input {
+
+}
+
+.login-input input {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  height: 37px;
+  background: transparent;
+  border: transparent;
+  border-bottom: 2px solid red;
+  padding: 0 10px;
+  pointer-events: all;
+
+}
+
+.login-input input:focus {
+  border: 2px solid #e50914;
+  width: 120%;
+}
 
 #enter {
   margin-left: auto;
