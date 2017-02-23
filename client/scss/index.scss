@@ -61,6 +61,7 @@ p {
 }
 
 .Search {
+<<<<<<< HEAD
   -webkit-box-align: center;
   align-items: center;
   width: 100%;
@@ -70,6 +71,14 @@ p {
   -webkit-box-pack: center;
   justify-content: center;
   pointer-events: none;
+=======
+  -webkit-justify-content: center;
+  width: 100%;
+  position: absolute;
+  left:0;
+  display: -webkit-box;
+  display: -webkit-flex;
+>>>>>>> b464706105070258d155a444270d4c643224cd6c
 }
 
 .Search input {
@@ -92,11 +101,33 @@ p {
   -webkit-transition: border .25s ease, width .125s ease .125s;
   transition: border .25s ease, width .125s ease .125s;
 }
+
 .Search input:focus {
   border: 2px solid #e50914;
   width: 30%;
 }
 
+.login-input {
+
+}
+
+.login-input input {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  height: 37px;
+  background: transparent;
+  border: transparent;
+  border-bottom: 2px solid red;
+  padding: 0 10px;
+  pointer-events: all;
+
+}
+
+.login-input input:focus {
+  border: 2px solid #e50914;
+  width: 120%;
+}
 
 #enter {
   margin-left: auto;
