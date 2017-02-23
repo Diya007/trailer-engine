@@ -90,6 +90,7 @@
     "react-addons-css-transition-group": "^15.4.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
+    "react-fontawesome": "^1.5.0",
     "react-icons": "^2.2.3",
     "react-iframe": "0.0.4",
     "react-modal": "^1.6.5",

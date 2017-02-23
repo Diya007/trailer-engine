@@ -28,7 +28,7 @@ var Login = React.createClass({
         <div className="Login" >  	
         	<form className="loginForm" onSubmit={this.fetchUsername}>
         	<div className="login-input">
-		        {this.state.show ? <input id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} movieList={this.props.payloadMovieList} />}
+		        {this.state.show ? <input placeholder="Your username..." id="login" ref="username"></input> :  <Profile profileName={this.props.currentUser} movieList={this.props.payloadMovieList} />}
 		    </div>
 		        {this.state.show ? <button id="login" onClick={this.fetchUsername} >Login</button> : null}
 	        </form> 

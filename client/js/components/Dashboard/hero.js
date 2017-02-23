@@ -12,15 +12,19 @@ var Hero = React.createClass({
           </div> */}
           
           <div className="title">
-            <h2>Now available</h2>
+            <h2> The world is like a big circus, it makes you excited, is let I fear, 
+            because I know that after the dismissal is always - limited tenderness, infinite grief.</h2>
+            <h3> ── Chaplin</h3>
           </div>
 
-          <p>Stay tuned for the latest movie trailers and previews.
-          Search for a movie name, click "Play" to watch or add it into your favorite list.</p>
+          <p>
+            Stay tuned for the latest movie trailers and previews.
+          </p>
+          
 
-          <div className="button-wrapper">
+           {/*<div className="button-wrapper">
             <HeroButton primary={true} text="Watch trailor now" /> 
-          </div>
+          </div>*/}
 
         </div>
 

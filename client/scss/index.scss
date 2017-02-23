@@ -29,14 +29,14 @@ body {
 }
 
 h2, .TitleList .Title {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 1em;
 }
 
 p {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.6;
   margin-bottom: 1em;
@@ -54,14 +54,18 @@ p {
   z-index: 5;
 }
 
+/*-------------------------logo in header trailer engine---------------------*/
 .Logo {
   text-shadow: 2px 2px 5px black;
-  font-size: 40px;
-  
+  font-size: 30px;
+  display: flex;
+
+}
+.Logo img {
+  height: 40px;
 }
 
 .Search {
-<<<<<<< HEAD
   -webkit-box-align: center;
   align-items: center;
   width: 100%;
@@ -71,14 +75,12 @@ p {
   -webkit-box-pack: center;
   justify-content: center;
   pointer-events: none;
-=======
   -webkit-justify-content: center;
   width: 100%;
   position: absolute;
   left:0;
   display: -webkit-box;
   display: -webkit-flex;
->>>>>>> b464706105070258d155a444270d4c643224cd6c
 }
 
 .Search input {
@@ -89,16 +91,16 @@ p {
   width: 20%;
   background: transparent;
   color: #ffffff;
-  -webkit-appearance: none;
+/*  -webkit-appearance: none;
      -moz-appearance: none;
-          appearance: none;
-  border: 0;
+          appearance: none;*/
+  /*border: 0;*/
   border: 2px solid rgba(245, 245, 241, 0.1);
   outline: none;
   border-radius: 37px;
   padding: 0 10px;
   pointer-events: all;
-  -webkit-transition: border .25s ease, width .125s ease .125s;
+ /* -webkit-transition: border .25s ease, width .125s ease .125s;*/
   transition: border .25s ease, width .125s ease .125s;
 }
 
@@ -116,32 +118,34 @@ p {
   font-weight: 300;
   font-size: 14px;
   height: 37px;
+  color: #ffffff;
+  outline: none;
   background: transparent;
   border: transparent;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid rgba(245, 245, 241, 0.1);
   padding: 0 10px;
   pointer-events: all;
 
 }
 
-.login-input input:focus {
+/*.login-input input:focus {
   border: 2px solid #e50914;
-  width: 120%;
-}
+  width: 100%;
+}*/
 
 #enter {
   margin-left: auto;
   margin-right: 10%;
 }
-.Login {
+.Login  {
   margin-left: auto;
 }
-
+.loginForm {
+  display: flex;
+}
 
 button {
-  background-color:#bc3315;
-  -moz-border-radius:28px;
-  -webkit-border-radius:28px;
+  background-color:rgba(74, 20, 8, 0.61);
   border-radius:28px;
   border:1px solid #942911;
   display:inline-block;
@@ -149,7 +153,7 @@ button {
   color:#ffffff;
   font-family:Arial;
   font-size:17px;
-  padding:10px 31px;
+  padding:4px 30px;
   text-decoration:none;
   text-shadow:0px 1px 0px #854629;
 }
@@ -180,14 +184,18 @@ button:active {
   top: 15vw;
 }
 .Hero .content .logo {
-  max-width: 400px;
+  max-width: 300px;
   display: block;
- 
 }
 .Hero .content p {
   width: 100%;
   height: 100%;
 }
+.Hero .content p.Chaplin {
+  text-align: center;
+  width: 50%
+}
+
 .Hero .content .button-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
