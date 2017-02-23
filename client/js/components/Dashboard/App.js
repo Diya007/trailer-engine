@@ -47,6 +47,7 @@ var App = React.createClass({
           </form>
           <Login />
         </header>
+    
         <Hero />
         {this.state.show ? <TitleList title="Search Results" items={this.props.items} /> : null}    
       </div>

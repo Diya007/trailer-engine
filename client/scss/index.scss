@@ -43,18 +43,9 @@ p {
 }
 
 .Header {
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, black 0%, transparent 100%);
-  /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, black 0%, transparent 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
-  /* IE6-9 */
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  padding: 40px;
+  padding: 50px;
   position: fixed;
   top: 0;
   left: 0;
@@ -66,33 +57,18 @@ p {
 .Logo {
   text-shadow: 2px 2px 5px black;
   font-size: 40px;
-  // width: 151px;
-  // height: 41px;
-  // margin-right: 10px;
-  // -webkit-transition: margin .125s ease;
-  // transition: margin .125s ease;
+  
 }
 
 .Search {
   -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
   width: 100%;
   position: absolute;
   left:0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   pointer-events: none;
 }
 
@@ -157,27 +133,29 @@ button:active {
   top:1px;
 }
 
+/*-----------------------background--------------------------*/ 
 .Hero {
   width: 100%;
   position: relative;
   background-size: cover;
-  min-height: 480px;
+  height: 600px;
 }
 .Hero .content {
-  position: relative;
+  text-align: center;
+  position: absolute;
   z-index: 4;
-  width: 500px;
-  left: 10vw;
-  top: 10vw;
+  width: 50%;
+  left: 24vw;
+  top: 15vw;
 }
 .Hero .content .logo {
   max-width: 400px;
   display: block;
-  position: relative;
-  left: -5px;
+ 
 }
 .Hero .content p {
   width: 100%;
+  height: 100%;
 }
 .Hero .content .button-wrapper {
   display: -webkit-box;
@@ -191,9 +169,6 @@ button:active {
   margin-right: 10px;
 }
 .Hero .overlay {
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #221f1f 0%, rgba(34, 31, 31, 0) 100%);
-  /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #221f1f 0%, rgba(34, 31, 31, 0) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
@@ -251,21 +226,11 @@ h2 {
 }
 
 .TitleList .titles-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  margin: 20px 0;
   margin-left: 20px;
   width: calc(100vw - 80px);
   box-sizing: border-box;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+
 }
 .TitleList[data-loaded='true'] {
   opacity: 1;
@@ -288,9 +253,11 @@ h2 {
   -webkit-transition: background 1s ease;
   transition: background 1s ease;
 }
-.Item:nth-child(n+6) {
+
+.Item:nth-child(n+6) { 
   margin-top: 20px;
 }
+
 .Item:last-child {
   margin-right: 0;
 }
