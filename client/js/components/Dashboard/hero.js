@@ -3,7 +3,8 @@ var React = require('react');
 var Hero = React.createClass({
   render: function() {
     return (
-      <div id="hero" className="Hero" style={{backgroundImage: 'url(https://static.pexels.com/photos/27008/pexels-photo-27008.jpg)'}}>
+      // 
+      <div id="hero" className="Hero" style={{backgroundImage: 'url(/assets/images/background.jpg)'}}>
         
         <div className="content">  
 

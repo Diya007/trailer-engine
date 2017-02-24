@@ -41,10 +41,12 @@ p {
   line-height: 1.6;
   margin-bottom: 1em;
 }
+/*-------------------------Header ---------------------*/
 
 .Header {
   background: linear-gradient(to bottom, black 0%, transparent 100%);
   display: flex;
+  flex-flow: row wrap; 
   padding: 50px;
   position: fixed;
   top: 0;
@@ -59,28 +61,30 @@ p {
   text-shadow: 2px 2px 5px black;
   font-size: 30px;
   display: flex;
-
 }
 .Logo img {
   height: 40px;
 }
 
 .Search {
-/*  -webkit-box-align: center;*/
   align-items: center;
-  width: 100%;
+ /* width: 100%;*/
   position: absolute;
   left:0;
   display: flex;
-  /*-webkit-box-pack: center;*/
   justify-content: center;
   pointer-events: none;
- /* -webkit-justify-content: center;*/
   width: 100%;
   position: absolute;
   left:0;
- /* display: -webkit-box;
-  display: -webkit-flex;*/
+  /*outline: 1px solid red;*/
+}
+
+/*-----------------search media query---------------------*/
+@media screen and (max-width: 725px) {
+  .Search{
+    margin: auto;
+  }
 }
 
 .Search input {
@@ -104,9 +108,6 @@ p {
   width: 30%;
 }
 
-.login-input {
-
-}
 
 .login-input input {
   font-family: "Lato", sans-serif;
@@ -194,69 +195,24 @@ button:active {
   text-align: center;
   width: 50%
 }
-
-/*.Hero .content .button-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 400px;
-  margin-top: 30px;
+@media screen and (max-width: 725px) {
+  .Hero .content{
+    top: 20%;
+    margin-bottom: 50%;
+  }
 }
-.Hero .content .button-wrapper .Button:first-child {
-  margin-right: 10px;
-}*/
+
 .Hero .overlay {
   background: linear-gradient(to bottom, #221f1f 0%, rgba(34, 31, 31, 0) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
-  /* IE6-9 */
   height: 100%;
   position: absolute;
   z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
-  /*-webkit-transform: rotate(180deg);*/
   transform: rotate(180deg);
 }
-
-/*this is watch trailor now button*/
- /*.Button {
-  background: transparent;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 44px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-decoration: none;
-  color: #ffffff;
-  padding: 20px;
-  box-sizing: border-box;
-  border: 2px solid rgba(245, 245, 241, 0.2);
-  border-radius: 44px;
-  font-size: 14px;
-  font-weight: 600;
-  -webkit-transition: border .125s ease, background .125s ease;
-  transition: border .125s ease, background .125s ease;
-}
-.Button:hover {
-  border: 2px solid #f5f5f1;
-}
-.Button[data-primary='true'] {
-  border: 2px solid #e50914;
-}
-.Button[data-primary='true']:hover {
-  background: #e50914;
-}*/
 
 h2 {
   margin-left: 20px;
@@ -273,6 +229,7 @@ h2 {
 }
 .TitleList .titles-wrapper {
   display: flex;
+  flex-flow: row wrap;
   margin-left: 20px;
   width: calc(100vw - 80px);
   box-sizing: border-box;
@@ -282,21 +239,19 @@ h2 {
   opacity: 1;
 }
 
+/*-----------------single Item----------------------*/
+
 .Item {
   width: calc(20% - 10px);
+
   min-width: calc(20% - 10px);
   background-color: #000000;
-  /*-webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;*/
   background-position: center;
   background-size: 100%;
   height: 200px;
   background-repeat: no-repeat;
   overflow: hidden;
   margin-right: 10px;
- /* -webkit-transition: background 1s ease;*/
   transition: background 1s ease;
 }
 
@@ -308,19 +263,13 @@ h2 {
   margin-right: 0;
 }
 .Item .overlay {
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
-  /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
-  /* IE6-9 */
   padding: 20px;
   position: relative;
   height: 100%;
   pointer-events: none;
   opacity: 0;
-  -webkit-transition: opacity .125s ease;
   transition: opacity .125s ease;
 }
 .Item .overlay .title {
@@ -331,20 +280,6 @@ h2 {
   transition: opacity .25s ease;
 }
 
-/*.Item .overlay .plot {
-  font-size: 14px;
-  display: -webkit-box;
-  margin-top: 100px;
-  font-weight: 300;
-  line-height: 1.6;
-  opacity: 0;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-transition: margin .25s ease .125s, opacity .25s ease .25s;
-  transition: margin .25s ease .125s, opacity .25s ease .25s;
-}*/
 .Item:hover {
   background-size: 150%;
 }
@@ -352,15 +287,28 @@ h2 {
   opacity: 1;
   pointer-events: all;
 }
-/*.Item:hover .overlay .plot {
-  margin-top: 10px;
-  opacity: 1;
-}*/
+
 .Item:hover .overlay .title  {
   opacity: 1;
 }
 
+@media screen and (max-width: 750px) {
+  .Item {
+    flex:1 100%;
+    height: 300px;
+  }
+  .TitleList {
+    top:85%;
+  }
+}
 
+/*--------------play video component--------------*/
+.player {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/*---------------add to list button---------------*/
 #toggle { 
   position: absolute;
   text-align: center;
@@ -369,6 +317,7 @@ h2 {
   cursor: pointer; 
 }
 
+/*----------------play movie button----------------*/
 #getMovies {
   text-align: center;
   /*overflow: hidden;*/
@@ -455,4 +404,10 @@ footer {
 .savedTitle:hover .tooltiptextMovie {
   visibility: visible;
 }
-/*----------------modal delete movie tooltip---------------------*/
+
+/*.player {
+  width: 100% !important;
+  height: 100% !important;
+}*/
+
+

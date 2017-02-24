@@ -7,7 +7,6 @@ var initialState = {
 	items:[],
 	loginError: null,
 	fetchedMovieLists:[]
-
 }
 
 

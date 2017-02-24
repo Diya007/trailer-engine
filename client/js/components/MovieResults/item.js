@@ -2,14 +2,17 @@ var React = require('react');
 var ListToggle = require('./list-toggle');
 var ReactPlayer = require('react-player');
 var YoutubePlay = require('react-icons/lib/fa/youtube-play');
-var PlayVideo = require('./videoEmbed')
+var PlayVideo = require('./videoEmbed');
+
 
 var Item = React.createClass({
   getInitialState: function() {
     return{show: false}
   },
   getMovie: function() {
-    
+    // console.log(this.ref)
+    // screenfull.request(ReactDOM.findDOMNode(this.refs.player))
+
     var movieTitle = this.props.title;  
     console.log(this.props.item);
     this.setState({show: true})
@@ -19,7 +22,7 @@ var Item = React.createClass({
        
       <div className="Item" style={{backgroundImage: 'url(' + this.props.backdrop + ')'}} >
 
-      {this.state.show ? <PlayVideo url={this.props.videoId} /> : null}
+      {this.state.show ? <PlayVideo url={this.props.videoId} ref='player' /> : null}
 
         <div className="overlay">
           <div className="title">{this.props.title}</div>      
