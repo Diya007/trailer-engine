@@ -94,6 +94,7 @@
     "react-iframe": "0.0.4",
     "react-modal": "^1.6.5",
     "react-overlays": "^0.6.10",
+    "react-player": "^0.14.3",
     "react-redux": "^5.0.2",
     "react-toastr": "^2.8.2",
     "redux": "^3.6.0",

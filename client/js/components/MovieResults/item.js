@@ -1,30 +1,28 @@
 var React = require('react');
 var ListToggle = require('./list-toggle');
-var Iframe = require("react-iframe");
+var ReactPlayer = require('react-player');
 var YoutubePlay = require('react-icons/lib/fa/youtube-play');
+var PlayVideo = require('./videoEmbed')
 
 var Item = React.createClass({
   getInitialState: function() {
     return{show: false}
   },
   getMovie: function() {
-
-    
     
     var movieTitle = this.props.title;  
     console.log(this.props.item);
     this.setState({show: true})
   }, 
   render: function() {
-    return (	
+    return (
+       
       <div className="Item" style={{backgroundImage: 'url(' + this.props.backdrop + ')'}} >
+
+      {this.state.show ? <PlayVideo url={this.props.videoId} /> : null}
+
         <div className="overlay">
-          <iframe style={{border: 'none'}} />;
-          <div className="title">{this.props.title}</div> 
-          {/*<button onClick={this.getMovie}  id="getMovies" type="button" >
-            Play
-          </button>*/}
-          
+          <div className="title">{this.props.title}</div>      
           <div className="play-trailer" id="getMovies" onClick={this.getMovie} ><YoutubePlay size={40} /></div>
           <div className="tooltiptext">click to play</div>
           <ListToggle movieTitle={this.props.title} videoId={this.props.videoId} movieItem={this.props.item} />      

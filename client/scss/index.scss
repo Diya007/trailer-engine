@@ -66,21 +66,21 @@ p {
 }
 
 .Search {
-  -webkit-box-align: center;
+/*  -webkit-box-align: center;*/
   align-items: center;
   width: 100%;
   position: absolute;
   left:0;
   display: flex;
-  -webkit-box-pack: center;
+  /*-webkit-box-pack: center;*/
   justify-content: center;
   pointer-events: none;
-  -webkit-justify-content: center;
+ /* -webkit-justify-content: center;*/
   width: 100%;
   position: absolute;
   left:0;
-  display: -webkit-box;
-  display: -webkit-flex;
+ /* display: -webkit-box;
+  display: -webkit-flex;*/
 }
 
 .Search input {
@@ -91,16 +91,11 @@ p {
   width: 20%;
   background: transparent;
   color: #ffffff;
-/*  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;*/
-  /*border: 0;*/
   border: 2px solid rgba(245, 245, 241, 0.1);
   outline: none;
   border-radius: 37px;
   padding: 0 10px;
   pointer-events: all;
- /* -webkit-transition: border .25s ease, width .125s ease .125s;*/
   transition: border .25s ease, width .125s ease .125s;
 }
 
@@ -129,11 +124,6 @@ p {
 
 }
 
-/*.login-input input:focus {
-  border: 2px solid #e50914;
-  width: 100%;
-}*/
-
 #enter {
   margin-left: auto;
   margin-right: 10%;
@@ -145,6 +135,7 @@ p {
   display: flex;
 }
 
+/*-------------------login button------------------*/
 button {
   background-color:rgba(74, 20, 8, 0.61);
   border-radius:28px;
@@ -226,12 +217,12 @@ button:active {
   top: 0;
   left: 0;
   width: 100%;
-  -webkit-transform: rotate(180deg);
-   transform: rotate(180deg);
+  /*-webkit-transform: rotate(180deg);*/
+  transform: rotate(180deg);
 }
 
 /*this is watch trailor now button*/
- .Button {
+ /*.Button {
   background: transparent;
   display: -webkit-box;
   display: -webkit-flex;
@@ -265,7 +256,7 @@ button:active {
 }
 .Button[data-primary='true']:hover {
   background: #e50914;
-}
+}*/
 
 h2 {
   margin-left: 20px;
@@ -285,8 +276,8 @@ h2 {
   margin-left: 20px;
   width: calc(100vw - 80px);
   box-sizing: border-box;
-
 }
+
 .TitleList[data-loaded='true'] {
   opacity: 1;
 }
@@ -295,17 +286,17 @@ h2 {
   width: calc(20% - 10px);
   min-width: calc(20% - 10px);
   background-color: #000000;
-  -webkit-box-flex: 1;
+  /*-webkit-box-flex: 1;
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+          flex: 1 0 auto;*/
   background-position: center;
   background-size: 100%;
   height: 200px;
   background-repeat: no-repeat;
   overflow: hidden;
   margin-right: 10px;
-  -webkit-transition: background 1s ease;
+ /* -webkit-transition: background 1s ease;*/
   transition: background 1s ease;
 }
 
@@ -340,7 +331,7 @@ h2 {
   transition: opacity .25s ease;
 }
 
-.Item .overlay .plot {
+/*.Item .overlay .plot {
   font-size: 14px;
   display: -webkit-box;
   margin-top: 100px;
@@ -353,7 +344,7 @@ h2 {
   text-overflow: ellipsis;
   -webkit-transition: margin .25s ease .125s, opacity .25s ease .25s;
   transition: margin .25s ease .125s, opacity .25s ease .25s;
-}
+}*/
 .Item:hover {
   background-size: 150%;
 }
@@ -361,10 +352,10 @@ h2 {
   opacity: 1;
   pointer-events: all;
 }
-.Item:hover .overlay .plot {
+/*.Item:hover .overlay .plot {
   margin-top: 10px;
   opacity: 1;
-}
+}*/
 .Item:hover .overlay .title  {
   opacity: 1;
 }
@@ -443,6 +434,10 @@ footer {
 }
 
 /*----------------modal play movie tooltip---------------------*/
+.modal:hover {
+  background-size: 150%;
+
+}
 .savedTitle .tooltiptextMovie {
     visibility: hidden;
     width: 120px;

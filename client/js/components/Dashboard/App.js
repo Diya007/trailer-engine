@@ -34,7 +34,7 @@ var App = React.createClass({
     this.refs.requestTerm.value = "";
     this.setState({show: true})
   },
-  //search input and enter button in a form;
+  
   render: function() {
     return (
       <div> 
@@ -53,6 +53,7 @@ var App = React.createClass({
           <Hero />
           {this.state.show ? <TitleList title="Search Results" items={this.props.items} /> : null} 
         </div> 
+
         <footer> <Copy size={20} />Made by Diya Zhao</footer>
       </div>
     );

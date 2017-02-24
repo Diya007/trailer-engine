@@ -34,7 +34,7 @@ var ReuseModal = React.createClass({
 			return <Movie key={i} link={savedMovie.movieLink} title={savedMovie.title} movie={savedMovie}  />
 		})
 		return (
-			<div>
+			<div className="modal">
 				<Modal style={customStyle} isOpen={this.props.show}  onRequestClose={this.props._close} contentLabel="Modal">
 					<h2>Favorite List</h2>			
 					{savedMovies}						
