@@ -122,6 +122,7 @@ p {
   outline: none;
   background: transparent;
   border: transparent;
+
   border-bottom: 2px solid rgba(245, 245, 241, 0.1);
   padding: 0 10px;
   pointer-events: all;
@@ -168,6 +169,13 @@ button:active {
   top:1px;
 }
 
+/*-------------------------wrap div---------------------------*/
+.wrap {
+  height: 600px;
+  position: relative;;
+}
+
+
 /*-----------------------background--------------------------*/ 
 .Hero {
   width: 100%;
@@ -181,7 +189,7 @@ button:active {
   z-index: 4;
   width: 50%;
   left: 24vw;
-  top: 15vw;
+  top: 12vw;
 }
 .Hero .content .logo {
   max-width: 300px;
@@ -196,7 +204,7 @@ button:active {
   width: 50%
 }
 
-.Hero .content .button-wrapper {
+/*.Hero .content .button-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -206,7 +214,7 @@ button:active {
 }
 .Hero .content .button-wrapper .Button:first-child {
   margin-right: 10px;
-}
+}*/
 .Hero .overlay {
   background: linear-gradient(to bottom, #221f1f 0%, rgba(34, 31, 31, 0) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -214,7 +222,7 @@ button:active {
   /* IE6-9 */
   height: 100%;
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
@@ -264,6 +272,14 @@ h2 {
   text-shadow: 2px 2px 5px black;
 }
 
+
+/*-------------------search result---------------------*/
+.TitleList {
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  top: 70%;
+}
 .TitleList .titles-wrapper {
   display: flex;
   margin-left: 20px;
@@ -356,20 +372,73 @@ h2 {
 
 #toggle { 
   position: absolute;
-
   text-align: center;
-  right:0px;
+  right: 20px;
   top: 10px;
+  cursor: pointer; 
 }
 
 #getMovies {
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  font-size: 15px;
   text-align: center;
-  overflow: hidden;
+  /*overflow: hidden;*/
   position: absolute;
   right: 20px;
   top: 150px;
-  
+  cursor: pointer;  
+}
+
+/*--------------------tooltip in titleList--------------------*/
+.tooltiptext {
+    visibility: hidden;
+    right: 0;
+    top: 120px;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-size: 15px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 10;
+}
+
+#getMovies:hover + .tooltiptext {
+  visibility: visible;
+}
+
+.tooltiptextInToggle {
+  visibility: hidden;
+    top: 50px;
+    right: 20px;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-size: 15px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 10;
+}
+
+#toggle:hover + .tooltiptextInToggle {
+  visibility: visible;
+}
+/*-------------------Modal---------------------*/
+
+.modalList {
+  display: flex;
+}
+.savedTitle, .deleteList {
+  padding: 10px;
+  cursor:pointer;
+}
+
+footer {
+  text-align: center;
+  bottom: 0;
 }
 

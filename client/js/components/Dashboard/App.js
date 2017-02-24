@@ -5,6 +5,7 @@ var actions = require('../../actions/index');
 var ReactToastr = require("react-toastr");
 var {ToastContainer} = ReactToastr;
 var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+var Copy = require('react-icons/lib/fa/copyright');
 
 var TitleList = require('../MovieResults/list');
 var Login = require('../Login/login')
@@ -47,9 +48,12 @@ var App = React.createClass({
           </form>
           <Login />
         </header>
-    
-        <Hero />
-        {this.state.show ? <TitleList title="Search Results" items={this.props.items} /> : null}    
+
+        <div className="wrap">
+          <Hero />
+          {this.state.show ? <TitleList title="Search Results" items={this.props.items} /> : null} 
+        </div> 
+        <footer> <Copy size={20} />Made by Diya Zhao</footer>
       </div>
     );
   }

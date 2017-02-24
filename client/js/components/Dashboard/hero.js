@@ -16,22 +16,16 @@ var Hero = React.createClass({
             because I know that after the dismissal is always - limited tenderness, infinite grief.</h2>
             <h3> ── Chaplin</h3>
           </div>
-
           <p>
             Stay tuned for the latest movie trailers and previews.
           </p>
-          
-
+                 
            {/*<div className="button-wrapper">
             <HeroButton primary={true} text="Watch trailor now" /> 
           </div>*/}
-
         </div>
-
         <div className="overlay"></div>
-
       </div>
-
     );
   }
 })

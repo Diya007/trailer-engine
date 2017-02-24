@@ -5,6 +5,7 @@ var actions = require('../../actions/index');
 var ReactToastr = require("react-toastr");
 var {ToastContainer} = ReactToastr;
 var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+var Add = require('react-icons/lib/fa/plus');
 
 var ListToggle = React.createClass({
   addMovie: function() {
@@ -25,9 +26,8 @@ var ListToggle = React.createClass({
     return (
       <div>
         <ToastContainer ref="container" toastMessageFactory={ToastMessageFactory} className="toast-top-right" />
-        <button  onClick={this.addMovie}  id="toggle" type="button" >
-          Add
-        </button>
+        <div className="add-to-list" onClick={this.addMovie} id="toggle"><Add size={40} /></div>
+        <div className="tooltiptextInToggle">click to add to the list</div>
       </div>   
     )
   }

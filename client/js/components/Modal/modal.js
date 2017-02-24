@@ -16,17 +16,16 @@ var ReuseModal = React.createClass({
 			    backgroundColor : 'rgba(255, 255, 255, 0)',
 			    zIndex :'1000'
 	    	},
-		  	content : {
+		  	content: {
 			    position : 'absolute',
 			    top : '20%',
 			    left : '60%',
 			    right : '5%',
-			    bottom : '30%',
-			    border : '5px solid #ccc',
-			    background : '#18222a',
+			    border : '5px solid rgba(204, 204, 204, 0.33)',
+			    background : 'rgba(195, 114, 41, 0.69)',
 			    overflow : 'auto',
 			    WebkitOverflowScrolling : 'touch',
-			    borderRadius : '4px',
+			    borderRadius : '37px',
 			    outline : 'none',
 		 	}
 		}
@@ -35,7 +34,6 @@ var ReuseModal = React.createClass({
 			return <Movie key={i} link={savedMovie.movieLink} title={savedMovie.title} movie={savedMovie}  />
 			// return <li key={i}><a href={savedMovie.movieLink}> {savedMovie.title} </a> <FaTrash size={22} /></li>
 		})
-
 		return (
 			<div>
 				<Modal style={customStyle} isOpen={this.props.show}  onRequestClose={this.props._close} contentLabel="Modal">

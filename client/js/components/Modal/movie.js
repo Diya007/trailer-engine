@@ -1,5 +1,5 @@
 var React = require('react');
-var FaTrash = require('react-icons/lib/fa/trash');
+var FaBan = require('react-icons/lib/fa/ban');
 var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 
@@ -16,9 +16,9 @@ var Movie = React.createClass({
 	render: function() {
 		return(
 			<div className="Movie">
-				<div className="col-sm-6">
+				<div className="modalList">
 					<div className="savedTitle" onClick={this.getMovie}> {this.props.title} </div>
-				    <div className="deleteList" onClick={this.deleteList}><FaTrash size={22} /></div>
+				    <div className="deleteList" onClick={this.deleteList}><FaBan size={22} /></div>
 				</div>
 			</div>
 		)		
