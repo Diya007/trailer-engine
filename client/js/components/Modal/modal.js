@@ -32,7 +32,6 @@ var ReuseModal = React.createClass({
 		//var savedMovies = this.props.movieList
 		var savedMovies = this.props.movieList.map(function(savedMovie, i) {
 			return <Movie key={i} link={savedMovie.movieLink} title={savedMovie.title} movie={savedMovie}  />
-			// return <li key={i}><a href={savedMovie.movieLink}> {savedMovie.title} </a> <FaTrash size={22} /></li>
 		})
 		return (
 			<div>

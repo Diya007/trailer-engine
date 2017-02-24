@@ -8,8 +8,9 @@ var Item = React.createClass({
     return{show: false}
   },
   getMovie: function() {
-    window.open('<iframe width="560" height="315" src="https://www.youtube.com/embed/tayEofaRQIs" frameborder="0" allowfullscreen></iframe>',"popup","width=700,height=450");
 
+    
+    
     var movieTitle = this.props.title;  
     console.log(this.props.item);
     this.setState({show: true})
@@ -18,6 +19,7 @@ var Item = React.createClass({
     return (	
       <div className="Item" style={{backgroundImage: 'url(' + this.props.backdrop + ')'}} >
         <div className="overlay">
+          <iframe style={{border: 'none'}} />;
           <div className="title">{this.props.title}</div> 
           {/*<button onClick={this.getMovie}  id="getMovies" type="button" >
             Play

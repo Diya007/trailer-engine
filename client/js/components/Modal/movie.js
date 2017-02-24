@@ -17,7 +17,9 @@ var Movie = React.createClass({
 		return(
 			<div className="Movie">
 				<div className="modalList">
-					<div className="savedTitle" onClick={this.getMovie}> {this.props.title} </div>
+					<div className="savedTitle" onClick={this.getMovie}> {this.props.title} 
+						<span className="tooltiptextMovie">click to play</span>
+					</div>
 				    <div className="deleteList" onClick={this.deleteList}><FaBan size={22} /></div>
 				</div>
 			</div>

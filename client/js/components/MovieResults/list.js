@@ -10,7 +10,7 @@ var TitleList = React.createClass({
     var imgs = this.props.items.map(function(item, i) {
         if(i<5) {
           var backDrop = item.snippet.thumbnails.high.url;
-          var videoId = 'https://www.youtube.com/watch?v='+item.id.videoId;
+          var videoId = 'https://www.youtube.com/embed'+item.id.videoId;
           var name = item.snippet.title;
           var overview = item.snippet.description;
           var item = item;
