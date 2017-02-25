@@ -8,7 +8,7 @@ var ReuseModal = React.createClass({
 
 	render: function() {
 	    var movieList = this.props.movieList;
-
+	    // console.log(movieList.movieLink.replace("watch?v=", "embed/"))
 	    var customStyle={
 	    	overlay: {
 	    		position  : 'fixed',
@@ -33,6 +33,7 @@ var ReuseModal = React.createClass({
 		var savedMovies = this.props.movieList.map(function(savedMovie, i) {
 			return <Movie key={i} link={savedMovie.movieLink} title={savedMovie.title} movie={savedMovie}  />
 		})
+
 		return (
 			<div className="modal">
 				<Modal style={customStyle} isOpen={this.props.show}  onRequestClose={this.props._close} contentLabel="Modal">

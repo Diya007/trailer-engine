@@ -15,8 +15,6 @@ var Profile = React.createClass({
 		this.setState({show: true})
 	},
 	render: function() {
-		//console.log(this.props.profileName)
-
 		var movieList = this.props.movieList;
 		//{this.state.show ? <MovieList movieList={movieList} /> : null}
 		return (

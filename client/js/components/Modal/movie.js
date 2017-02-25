@@ -8,6 +8,8 @@ var actions = require('../../actions/index');
 var Movie = React.createClass({
 	getMovie: function() {
 		window.open(this.props.link,"popup","width=700,height=450");
+		console.log(this.props.link)
+
 	},
 	deleteList: function() {
 		var movieId = this.props.movie._id;
