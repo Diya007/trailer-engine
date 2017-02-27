@@ -12,6 +12,7 @@ var ReuseModal = React.createClass({
 	    var customStyle={
 	    	overlay: {
 	    		position  : 'fixed',
+			    backgroundColor : 'rgba(119, 117, 110, 0.74902)',
 			    zIndex :'1000'
 	    	},
 		  	content: {
@@ -25,7 +26,7 @@ var ReuseModal = React.createClass({
 			    background : 'rgb(195, 114, 41)',
 			    overflow : 'auto',
 			    borderRadius : '37px',
-			    outline : 'none',
+			    outline : 'none'
 		 	}
 		}
 		//var savedMovies = this.props.movieList
