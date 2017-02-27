@@ -12,19 +12,18 @@ var ReuseModal = React.createClass({
 	    var customStyle={
 	    	overlay: {
 	    		position  : 'fixed',
-	    		//top: '100px',
-			    backgroundColor : 'rgba(255, 255, 255, 0)',
 			    zIndex :'1000'
 	    	},
 		  	content: {
+		  		width: '40%',
 			    position : 'absolute',
+			    left: '52%',
 			    top : '20%',
-			    left : '60%',
 			    right : '5%',
+			    bottom: '40px',
 			    border : '5px solid rgba(204, 204, 204, 0.33)',
-			    background : 'rgba(195, 114, 41, 0.69)',
+			    background : 'rgb(195, 114, 41)',
 			    overflow : 'auto',
-			    WebkitOverflowScrolling : 'touch',
 			    borderRadius : '37px',
 			    outline : 'none',
 		 	}
