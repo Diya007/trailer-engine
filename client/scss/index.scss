@@ -54,13 +54,14 @@ p {
   width: 100vw;
   box-sizing: border-box;
   z-index: 5;
+
 }
 
 /*-------------------------logo in header trailer engine---------------------*/
 .Logo {
   text-shadow: 2px 2px 5px black;
   font-size: 30px;
-  display: flex;
+  /*display: flex;*/
 }
 .Logo img {
   height: 40px;
@@ -81,7 +82,11 @@ p {
 }
 
 /*-----------------search media query---------------------*/
-@media screen and (max-width: 725px) {
+@media screen and (max-width: 800px) {
+  .Header {
+    flex-direction: column;
+  }
+
   .Search{
     margin: auto;
   }
