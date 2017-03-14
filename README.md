@@ -1,6 +1,10 @@
 # Trailer Engine
 Full- functional trailer searching App that allow people to search movie trailers, add to favorite list and play it. 
 
+![screen shot 2017-02-24 at 8 49 33 am](https://cloud.githubusercontent.com/assets/17839996/23921270/3e244d94-08bb-11e7-82c4-94492d84ceb5.png)
+
+![screen shot 2017-02-10 at 2 10 38 pm](https://cloud.githubusercontent.com/assets/17839996/23921315/79e8de94-08bb-11e7-9f19-bbd9fb0496a5.png)
+
 # Technology #
 ### Front End
 - HTML5
